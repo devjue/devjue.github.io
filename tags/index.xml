@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on My New Hugo Site</title>
-    <link>http://devjue.github.io/tags/</link>
-    <description>Recent content in Tags on My New Hugo Site</description>
+    <title>Tags on Pure theme for Hugo</title>
+    <link>https://devjue.github.io/tags/</link>
+    <description>Recent content in Tags on Pure theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Dec 2019 13:02:56 +0800</lastBuildDate>
     
-        <atom:link href="http://devjue.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://devjue.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo博客搭建之一：部署在GitHub Page上</title>
+      <link>https://devjue.github.io/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%B8%80%E9%83%A8%E7%BD%B2%E5%9C%A8github-page%E4%B8%8A/</link>
+      <pubDate>Thu, 05 Dec 2019 13:02:56 +0800</pubDate>
+      
+      <guid>https://devjue.github.io/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%B8%80%E9%83%A8%E7%BD%B2%E5%9C%A8github-page%E4%B8%8A/</guid>
+      <description>安装 Hugo mac 推荐使用 brew 进行安装： $ brew install hugo windows 由于源码安装会从。 下载，所以推荐从 GitHub 直接下载最新的稳定的二进制版本。然后，将其加入环境变量。 生成站点 使</description>
+    </item>
     
   </channel>
 </rss>
