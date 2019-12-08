@@ -15,7 +15,7 @@
       <pubDate>Thu, 05 Dec 2019 13:02:56 +0800</pubDate>
       
       <guid>https://devjue.github.io/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%B8%80%E9%83%A8%E7%BD%B2%E5%9C%A8github-page%E4%B8%8A/</guid>
-      <description>安装 Hugo mac 推荐使用 brew 进行安装： $ brew install hugo windows 由于源码安装会从。 下载，所以推荐从 GitHub 直接下载最新的稳定的二进制版本。然后，将其加入环境变量。 生成站点 使</description>
+      <description>安装 Hugo mac 推荐使用 brew 进行安装： $ brew install hugo windows 推荐从 GitHub 直接下载最新的稳定的二进制版本。然后，将其加入环境变量。 源码安装 如果网络条件良好，也可以使用源</description>
     </item>
     
   </channel>
