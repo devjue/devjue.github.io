@@ -5,10 +5,19 @@
     <link>https://devjue.github.io/tags/hugo/</link>
     <description>Recent content in hugo on Pure theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 05 Dec 2019 13:02:56 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 06 Dec 2019 09:01:30 +0700</lastBuildDate>
     
         <atom:link href="https://devjue.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo博客搭建之二：部署在服务器上</title>
+      <link>https://devjue.github.io/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%BA%8C%E9%83%A8%E7%BD%B2%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A/</link>
+      <pubDate>Fri, 06 Dec 2019 09:01:30 +0700</pubDate>
+      
+      <guid>https://devjue.github.io/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%BA%8C%E9%83%A8%E7%BD%B2%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A/</guid>
+      <description>上一篇介绍了 Hugo 的安装，以及如何在 GitHub Page 上进行部署。这一篇将介绍如何在独立的服务器上部署站点。 在服务器上部署站点，可以最大程度地自由发挥。首先，</description>
+    </item>
     
     <item>
       <title>Hugo博客搭建之一：部署在GitHub Page上</title>
