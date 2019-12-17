@@ -30,6 +30,7 @@
 
   <link rel="stylesheet" href="https://devjue.github.io/css/style.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
   <meta property="og:title" content="Hugo博客搭建之一：部署在GitHub Page上" />
 <meta property="og:description" content="安装 Hugo mac 推荐使用 brew 进行安装： $ brew install hugo windows 推荐从 GitHub 直接下载最新的稳定的二进制版本。然后，将其加入环境变量。 源码安装 如果网络条件良好，也可以使用源" />
 <meta property="og:type" content="article" />
@@ -42,7 +43,7 @@
 
 <meta itemprop="datePublished" content="2019-12-05T13:02:56&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-05T13:02:56&#43;08:00" />
-<meta itemprop="wordCount" content="1032">
+<meta itemprop="wordCount" content="1147">
 
 
 
@@ -159,7 +160,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://devjue.github.io/categories/web/" class="category-list-link">web</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://devjue.github.io/categories/web/" class="category-list-link">web</a><span class="category-list-count">3</span></li>
         </ul>
     </div>
 </div>
@@ -167,6 +168,10 @@
     <h3 class="widget-title"> 标签</h3>
     <div class="widget-body">
         <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://devjue.github.io/tags/git/" class="tag-list-link">git</a><span
+                    class="tag-list-count">1</span></li>
             
             
             <li class="tag-list-item"><a href="https://devjue.github.io/tags/hugo/" class="tag-list-link">hugo</a><span
@@ -185,6 +190,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://devjue.github.io/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%B8%89%E4%BD%BF%E7%94%A8github%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%89%88%E6%9C%AC%E8%BF%9B%E8%A1%8C%E7%AE%A1%E7%90%86/" class="title">Hugo博客搭建之三：使用GitHub对博客版本进行管理</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-16 18:19:15 &#43;0800 CST" itemprop="datePublished">2019-12-16</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -213,36 +228,14 @@
 
     
     
-  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
-    <div class="slimContent">
-      <nav id="toc" class="article-toc">
-        <h3 class="toc-title">文章目录</h3>
-        <div class="toc-content always-active"><nav id="TableOfContents">
-<ul>
-<li><a href="#安装-hugo">安装 Hugo</a>
-<ul>
-<li><a href="#mac">mac</a></li>
-<li><a href="#windows">windows</a></li>
-<li><a href="#源码安装">源码安装</a></li>
-</ul></li>
-<li><a href="#生成站点">生成站点</a></li>
-<li><a href="#创建文章">创建文章</a></li>
-<li><a href="#安装皮肤">安装皮肤</a></li>
-<li><a href="#运行-hugo">运行 Hugo</a></li>
-<li><a href="#部署-hugo">部署 Hugo</a>
-<ul>
-<li><a href="#创建-github-仓库">创建 GitHub 仓库</a></li>
-<li><a href="#生成静态页面">生成静态页面</a></li>
-<li><a href="#初始化仓库">初始化仓库</a></li>
-</ul></li>
-<li><a href="#软件版本">软件版本</a></li>
-<li><a href="#参考">参考</a></li>
-</ul>
-</nav>
-        </div>
-      </nav>
-    </div>
-  </aside>
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
 <main class="main" role="main"><div class="content">
   <article id="-" class="article article-type-" itemscope
     itemtype="http://schema.org/BlogPosting">
@@ -273,11 +266,11 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%B8%80%E9%83%A8%E7%BD%B2%E5%9C%A8github-page%E4%B8%8A/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1032字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1147字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:3分 </span>
       </div>
     </div>
-    <div class="article-entry marked-body" itemprop="articleBody">
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
       
 
 <h1 id="安装-hugo">安装 Hugo</h1>
@@ -325,9 +318,9 @@ $ hugo new post/hello_world.md
 
 <h1 id="安装皮肤">安装皮肤</h1>
 
-<p><a href="https://themes.gohugo.io/">Hugo官网</a> 有很多主题可供选择。选择您最喜欢的一款，下载到本地 theme 目录下。推荐使用 <code>git clone</code>，方便以后更新主题。例如，我选择的是 <a href="https://github.com/xiaoheiAh/hugo-theme-pure">pure</a> :</p>
+<p><a href="https://themes.gohugo.io/">Hugo官网</a> 有很多主题可供选择。选择您最喜欢的一款，下载到本地 theme 目录下。推荐使用 <code>git clone</code> 克隆项目，方便以后更新主题。但如果考虑到以后需要使用 GitHub 对博客版本进行管理，更推荐使用 <code>git submodule add</code> 将<code>主题项目</code>作为子模块添加。这部分不是本文讨论的重点，如果感兴趣，可以阅读<a href="/2019/12/hugo博客搭建之三使用github对博客版本进行管理/">《Hugo博客搭建之三：使用 GitHub 对博客版本进行管理》</a>了解更多。本文还是介绍使用 <code>git clone</code> 克隆项目的方法。例如，我选择的是 <a href="https://github.com/xiaoheiAh/hugo-theme-pure">pure</a> :</p>
 
-<pre><code class="language-bash">$ git clone https://github.com/xiaoheiAh/hugo-theme-pure themes/pure
+<pre><code class="language-bash">$ git clone git@github.com:xiaoheiAh/hugo-theme-pure.git themes/pure
 </code></pre>
 
 <h1 id="运行-hugo">运行 Hugo</h1>
@@ -511,40 +504,52 @@ $ git push -u origin master
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script>
-   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 </script>
 <script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
 <script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
 <script type="text/javascript"
-   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+    src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
 <script>
-hljs.configure({
-  tabReplace: '    ', 
-  classPrefix: ''     
-                      
-})
-hljs.initHighlightingOnLoad();
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
 </script>
 <script type="text/javascript" src="https://devjue.github.io/js/application.js"></script>
 <script type="text/javascript" src="https://devjue.github.io/js/plugin.js"></script>
 <script>
-      (function (window) {
-          var INSIGHT_CONFIG = {
-              TRANSLATION: {
-                  POSTS: '文章',
-                  PAGES: '页面',
-                  CATEGORIES: '分类',
-                  TAGS: '标签',
-                  UNTITLED: '(未命名)',
-              },
-              ROOT_URL: 'https:\/\/devjue.github.io\/',
-              CONTENT_URL: 'https:\/\/devjue.github.io\/\/searchindex.json ',
-          };
-          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-      })(window);
-      </script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/devjue.github.io\/',
+            CONTENT_URL: 'https:\/\/devjue.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
 <script type="text/javascript" src="https://devjue.github.io/js/insight.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
 
   </body>
 </html>

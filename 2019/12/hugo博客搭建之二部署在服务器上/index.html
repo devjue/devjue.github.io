@@ -30,6 +30,7 @@
 
   <link rel="stylesheet" href="https://devjue.github.io/css/style.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
   <meta property="og:title" content="Hugo博客搭建之二：部署在服务器上" />
 <meta property="og:description" content="上一篇介绍了 Hugo 的安装，以及如何在 GitHub Page 上进行部署。这一篇将介绍如何在独立的服务器上部署站点。 在服务器上部署站点，可以最大程度地自由发挥。首先，" />
 <meta property="og:type" content="article" />
@@ -159,7 +160,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://devjue.github.io/categories/web/" class="category-list-link">web</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://devjue.github.io/categories/web/" class="category-list-link">web</a><span class="category-list-count">3</span></li>
         </ul>
     </div>
 </div>
@@ -167,6 +168,10 @@
     <h3 class="widget-title"> 标签</h3>
     <div class="widget-body">
         <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://devjue.github.io/tags/git/" class="tag-list-link">git</a><span
+                    class="tag-list-count">1</span></li>
             
             
             <li class="tag-list-item"><a href="https://devjue.github.io/tags/hugo/" class="tag-list-link">hugo</a><span
@@ -185,6 +190,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://devjue.github.io/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%B8%89%E4%BD%BF%E7%94%A8github%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%89%88%E6%9C%AC%E8%BF%9B%E8%A1%8C%E7%AE%A1%E7%90%86/" class="title">Hugo博客搭建之三：使用GitHub对博客版本进行管理</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-16 18:19:15 &#43;0800 CST" itemprop="datePublished">2019-12-16</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -213,38 +228,14 @@
 
     
     
-  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
-    <div class="slimContent">
-      <nav id="toc" class="article-toc">
-        <h3 class="toc-title">文章目录</h3>
-        <div class="toc-content always-active"><nav id="TableOfContents">
-<ul>
-<li><a href="#查看系统信息">查看系统信息</a></li>
-<li><a href="#安装-nginx">安装 nginx</a>
-<ul>
-<li><a href="#安装依赖">安装依赖</a></li>
-<li><a href="#创建-nginx-用户">创建 nginx 用户</a></li>
-<li><a href="#安装-nginx-1">安装 nginx</a></li>
-<li><a href="#配置环境变量">配置环境变量</a></li>
-</ul></li>
-<li><a href="#启动-nginx">启动 nginx</a>
-<ul>
-<li><a href="#编辑-nginx-配置文件">编辑 nginx 配置文件</a></li>
-<li><a href="#设置端口转发">设置端口转发</a></li>
-<li><a href="#启动-nginx-1">启动 nginx</a></li>
-<li><a href="#上传静态站点">上传静态站点</a></li>
-<li><a href="#配置站点">配置站点</a></li>
-</ul></li>
-<li><a href="#dns-解析">DNS 解析</a></li>
-<li><a href="#网站备案">网站备案</a></li>
-<li><a href="#软件版本">软件版本</a></li>
-<li><a href="#参考">参考</a></li>
-</ul>
-</nav>
-        </div>
-      </nav>
-    </div>
-  </aside>
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
 <main class="main" role="main"><div class="content">
   <article id="-" class="article article-type-" itemscope
     itemtype="http://schema.org/BlogPosting">
@@ -280,7 +271,7 @@
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:2分 </span>
       </div>
     </div>
-    <div class="article-entry marked-body" itemprop="articleBody">
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
       
 
 <p><a href="/2019/12/hugo博客搭建之一部署在github-page上/">上一篇</a>介绍了 Hugo 的安装，以及如何在 <code>GitHub Page</code> 上进行部署。这一篇将介绍如何在独立的服务器上部署站点。</p>
@@ -473,6 +464,11 @@ nginx
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
             </li>
+            <li class="next">
+                <a href="https://devjue.github.io/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%B8%89%E4%BD%BF%E7%94%A8github%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%89%88%E6%9C%AC%E8%BF%9B%E8%A1%8C%E7%AE%A1%E7%90%86/"
+                    title="Hugo博客搭建之三：使用GitHub对博客版本进行管理"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
             
             <li class="toggle-toc">
                 <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
@@ -520,40 +516,52 @@ nginx
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script>
-   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 </script>
 <script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
 <script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
 <script type="text/javascript"
-   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+    src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
 <script>
-hljs.configure({
-  tabReplace: '    ', 
-  classPrefix: ''     
-                      
-})
-hljs.initHighlightingOnLoad();
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
 </script>
 <script type="text/javascript" src="https://devjue.github.io/js/application.js"></script>
 <script type="text/javascript" src="https://devjue.github.io/js/plugin.js"></script>
 <script>
-      (function (window) {
-          var INSIGHT_CONFIG = {
-              TRANSLATION: {
-                  POSTS: '文章',
-                  PAGES: '页面',
-                  CATEGORIES: '分类',
-                  TAGS: '标签',
-                  UNTITLED: '(未命名)',
-              },
-              ROOT_URL: 'https:\/\/devjue.github.io\/',
-              CONTENT_URL: 'https:\/\/devjue.github.io\/\/searchindex.json ',
-          };
-          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-      })(window);
-      </script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/devjue.github.io\/',
+            CONTENT_URL: 'https:\/\/devjue.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
 <script type="text/javascript" src="https://devjue.github.io/js/insight.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
 
   </body>
 </html>
