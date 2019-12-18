@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Hugo 博客搭建之二：部署在服务器上 - Pure theme for Hugo
+        Hyperledger Fabric 1.4 官方文档翻译之五：Key Concepts - Blockchain network (5) - Pure theme for Hugo
       </title>
     <head>
   <meta charset="utf-8">
@@ -23,34 +23,34 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <meta name="description" content="上一篇介绍了 Hugo 的安装，以及如何在 GitHub Page 上进行部署。这一篇将介绍如何在独立的服务器上部署站点。 在服务器上部署站点，可以最大程度地自由发挥。首先，" />
+  <meta name="description" content="添加另一个联盟定义 在网络开发的下一阶段，我们介绍组织R3。我们将要为组织 R2 和 R3 提供一个单独应用程序通道，使他们能够互相交易。这个应用程序通道" />
   <meta name="generator" content="Hugo 0.58.2 with theme pure" />
-  <title>Hugo 博客搭建之二：部署在服务器上 - Pure theme for Hugo</title>
+  <title>Hyperledger Fabric 1.4 官方文档翻译之五：Key Concepts - Blockchain network (5) - Pure theme for Hugo</title>
   
 
   <link rel="stylesheet" href="https://devjue.github.io/css/style.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
-  <meta property="og:title" content="Hugo 博客搭建之二：部署在服务器上" />
-<meta property="og:description" content="上一篇介绍了 Hugo 的安装，以及如何在 GitHub Page 上进行部署。这一篇将介绍如何在独立的服务器上部署站点。 在服务器上部署站点，可以最大程度地自由发挥。首先，" />
+  <meta property="og:title" content="Hyperledger Fabric 1.4 官方文档翻译之五：Key Concepts - Blockchain network (5)" />
+<meta property="og:description" content="添加另一个联盟定义 在网络开发的下一阶段，我们介绍组织R3。我们将要为组织 R2 和 R3 提供一个单独应用程序通道，使他们能够互相交易。这个应用程序通道" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://devjue.github.io/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%BA%8C%E9%83%A8%E7%BD%B2%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A/" />
-<meta property="article:published_time" content="2019-12-06T09:01:30+07:00" />
-<meta property="article:modified_time" content="2019-12-06T09:01:30+07:00" />
-<meta itemprop="name" content="Hugo 博客搭建之二：部署在服务器上">
-<meta itemprop="description" content="上一篇介绍了 Hugo 的安装，以及如何在 GitHub Page 上进行部署。这一篇将介绍如何在独立的服务器上部署站点。 在服务器上部署站点，可以最大程度地自由发挥。首先，">
+<meta property="og:url" content="https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%BA%94key-concepts-blockchain-network-5/" />
+<meta property="article:published_time" content="2019-12-11T11:12:07+08:00" />
+<meta property="article:modified_time" content="2019-12-11T11:12:07+08:00" />
+<meta itemprop="name" content="Hyperledger Fabric 1.4 官方文档翻译之五：Key Concepts - Blockchain network (5)">
+<meta itemprop="description" content="添加另一个联盟定义 在网络开发的下一阶段，我们介绍组织R3。我们将要为组织 R2 和 R3 提供一个单独应用程序通道，使他们能够互相交易。这个应用程序通道">
 
 
-<meta itemprop="datePublished" content="2019-12-06T09:01:30&#43;07:00" />
-<meta itemprop="dateModified" content="2019-12-06T09:01:30&#43;07:00" />
-<meta itemprop="wordCount" content="951">
+<meta itemprop="datePublished" content="2019-12-11T11:12:07&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-11T11:12:07&#43;08:00" />
+<meta itemprop="wordCount" content="2906">
 
 
 
-<meta itemprop="keywords" content="hugo,nginx," />
+<meta itemprop="keywords" content="Hyperledger,Fabric," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Hugo 博客搭建之二：部署在服务器上"/>
-<meta name="twitter:description" content="上一篇介绍了 Hugo 的安装，以及如何在 GitHub Page 上进行部署。这一篇将介绍如何在独立的服务器上部署站点。 在服务器上部署站点，可以最大程度地自由发挥。首先，"/>
+<meta name="twitter:title" content="Hyperledger Fabric 1.4 官方文档翻译之五：Key Concepts - Blockchain network (5)"/>
+<meta name="twitter:description" content="添加另一个联盟定义 在网络开发的下一阶段，我们介绍组织R3。我们将要为组织 R2 和 R3 提供一个单独应用程序通道，使他们能够互相交易。这个应用程序通道"/>
 
   <!--[if lte IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -273,183 +273,109 @@
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%BA%8C%E9%83%A8%E7%BD%B2%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A/"
-    >Hugo 博客搭建之二：部署在服务器上</a
+    href="/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%BA%94key-concepts-blockchain-network-5/"
+    >Hyperledger Fabric 1.4 官方文档翻译之五：Key Concepts - Blockchain network (5)</a
   >
 </h1>
 
       <div class="article-meta">
         <span class="article-date">
   <i class="icon icon-calendar-check"></i>
-<a href="https://devjue.github.io/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%BA%8C%E9%83%A8%E7%BD%B2%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A/" class="article-date">
-  <time datetime="2019-12-06 09:01:30 &#43;0700 &#43;0700" itemprop="datePublished">2019-12-06</time>
+<a href="https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%BA%94key-concepts-blockchain-network-5/" class="article-date">
+  <time datetime="2019-12-11 11:12:07 &#43;0800 CST" itemprop="datePublished">2019-12-11</time>
 </a>
 </span><span class="article-category">
   <i class="icon icon-folder"></i>
-  <a class="article-category-link" href="/categories/web/"> web </a>
+  <a class="article-category-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"> 区块链 </a>
 </span>  
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-    <a class="article-tag-link" href="/tags/hugo/"> hugo </a>
-    <a class="article-tag-link" href="/tags/nginx/"> nginx </a>
+    <a class="article-tag-link" href="/tags/hyperledger/"> Hyperledger </a>
+    <a class="article-tag-link" href="/tags/fabric/"> Fabric </a>
   </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%BA%8C%E9%83%A8%E7%BD%B2%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A/#comments"
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%BA%94key-concepts-blockchain-network-5/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:951字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:2分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:2906字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:6分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
       
 
-<p><a href="/2019/12/hugo博客搭建之一部署在github-page上/">上一篇</a>介绍了 Hugo 的安装，以及如何在 <code>GitHub Page</code> 上进行部署。这一篇将介绍如何在独立的服务器上部署站点。</p>
+<h2 id="添加另一个联盟定义">添加另一个联盟定义</h2>
 
-<p>在服务器上部署站点，可以最大程度地自由发挥。首先，需要一台服务器，博客不需要太高的配置，入门级云服务器即可。然后，需要一个域名，这是您江湖上行走的ID，自己喜欢就好，不推荐暂时不能备案的（如 .org、.name 等）。此外，还需要 DNS 解析服务，有的域名商会在卖域名时附赠这项服务。总结一下，需要：</p>
+<p>在网络开发的下一阶段，我们介绍组织R3。我们将要为组织 R2 和 R3 提供一个单独应用程序通道，使他们能够互相交易。这个应用程序通道将与之前定义的通道完全分开，因此 R2 和 R3 的交易可以对它们保持私密。</p>
 
-<ul>
-<li>云服务器</li>
-<li>域名</li>
-<li>DNS 服务</li>
-</ul>
+<p>让我们回到网络层面，为 R2 和 R3 定义一个新联盟 X2：</p>
 
-<p>Hugo 生成的是静态站点，推荐使用 nginx 作为博客的 web 服务器。</p>
+<p><img src="/images/2019-12-11T11-img-0.png" alt="联盟2" /></p>
 
-<p>下面，就开始部署吧。</p>
+<p><em>组织 R1 或 R4 的网络管理员添加了一个新联盟定义 X2，包括组织 R2 和 R3。这将用于为 X2 定义新通道。</em></p>
 
-<h1 id="查看系统信息">查看系统信息</h1>
+<p>注意，网络现在有两个联盟定义：组织 R1 和 R2 的 X1，组织 R2 和 R3 的 X2。引入联盟 X2，是为了能够为 R2 和 R3 创建新通道。</p>
 
-<pre><code class="language-bash">$ cat /etc/redhat-release
-CentOS Linux release 7.5.1804 (Core)
-$ uname -r
-3.10.0-862.el7.x86_64
-</code></pre>
+<p>新通道只能被那些在网络配置策略 NC4 中明确标识为拥有相应权限的组织（即 R1 或 R4）创建。这是一个策略的示例，该策略可以区分出可以在网络层面管理资源的组织和可以在通道层面管理资源的组织。看到这些策略在起作用，有助于我们理解为什么 Hyperledger Fabric 具有复杂的<strong>分层</strong>策略结构。</p>
 
-<h1 id="安装-nginx">安装 nginx</h1>
+<p>在实践中，联盟定义X2已经被添加到网络配置NC4中。我们将在文档的其它地方讨论这些操作的确切机制。</p>
 
-<h2 id="安装依赖">安装依赖</h2>
+<h2 id="添加新通道">添加新通道</h2>
 
-<p>gcc-c++ 是 nginx 源码编译需要的 gcc 环境。</p>
+<p>让我们现在使用新的联盟定义X2创建一个新通道 C2。为了帮助加强您对这个简化通道记号的理解，我们同时使用两种视觉形式——通道 C1 使用蓝色圆圈端点表示，而通道 C2 使用红色连接线表示：</p>
 
-<p>pcre、pcre-devel、zlib、zlib-devel、openssl、openssl-devel 是 nginx 源码编译依赖的库。</p>
+<p><img src="/images/2019-12-11T11-img-1.png" alt="通道2" /></p>
 
-<pre><code class="language-bash">yum -y install gcc-c++ pcre pcre-devel zlib zlib-devel openssl openssl-devel
-</code></pre>
+<p><em>使用联盟定义 X2 为 R2 和 R3 创建了一个新通道 C2。该通道有完全独立于网络配置 NC4 的通道配置 CC2 和通道配置 CC1。通道 C2 由 R2 和 R3 管理，它们具有 CC2 中策略定义的对 C2 的同等权限。R1 和 R4 在 CC2 中均未被定义任何权限。</em></p>
 
-<h2 id="创建-nginx-用户">创建 nginx 用户</h2>
+<p>通道 C2 为联盟 X2 提供了私密通讯机制。再次注意，联盟中的组织联合起来是通过什么形式的通道。通道配置 CC2 现在包含管理通道资源的策略，通过通道 C2 给组织 R2 和 R3 分配管理权限。它仅由 R2 和 R3 管理，R1 和 R4 在通道 C2 中没有权限。例如，随后可以更新通道配置 CC2 以添加组织来支撑网络增长，但这些只能由 R2 或 R3 完成。</p>
 
-<p>给 nginx 服务分配单独的用户进行操作，以隔离风险。</p>
+<p>注意，通道配置 CC1 和 CC2 如何保持彼此完全独立，并与网络配置 NC4 完全独立。再次，我们看到 Hyperledger Fabric 网络的去中心化特性；通道 C2 一旦创建，它将被组织 R2 和 R3 独立于其它网络元素来管理。通道策略总是保持彼此独立，并只能由有权在通道中这样做的组织进行更改。</p>
 
-<pre><code class="language-bash">useradd nginx
-su nginx
-</code></pre>
+<p>随着网络和通道的发展，网络和通道的配置也将随之发展。这是一个通过受控的方式完成的过程——涉及配置交易，这些交易包括这些配置的更改。每个配置的更改都会导致一个新的配置区块交易生成，<a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#the-ordering-serivce">在本主题的后面</a>，我们将看到这些区块如何被验证和接受，以便分别创建更新的网络和通道配置。</p>
 
-<h2 id="安装-nginx-1">安装 nginx</h2>
+<h3 id="网络和通道配置">网络和通道配置</h3>
 
-<p>下载最新版本的 <a href="https://nginx.org/en/download.html">nginx 源码</a>。配置 <code>configure</code> 参数，把 nginx 安装在 <code>nginx</code> 的用户目录 <code>opt/</code> 下，并设置 <code>worker 进程</code> 的默认用户为 <code>nginx</code> 。</p>
+<p>在整个示例网络中，我们看到网络和通道配置的重要性。这些配置非常重要，因为它们封装了网络成员达成一致的<strong>策略</strong>，这些策略对控制访问网络资源提供了共享参考。网络和通道配置还包含有关网络和通道组成的事实，例如联盟的名称及其组织。</p>
 
-<pre><code class="language-bash">mkdir $HOME/download $HOME/opt
-cd ~/download
-wget https://nginx.org/download/nginx-1.16.1.tar.gz
-tar zxf nginx-1.16.1.tar.gz
-cd nginx-1.16.1
-./configure --prefix=/home/nginx/opt/nginx --user=nginx
-make &amp; make install
-</code></pre>
+<p>例如，当使用排序服务节点 O4 首次生成网络时，其行为被网络配置 NC4 控制。NC4 的初始配置只包含允许组织R4管理网络资源的策略。随后，NC4 被更新为还允许 R1 管理网络资源。进行此更新后，组织 R1 或 R4 中连接到 O4 的任何管理员将拥有网络管理权限，因为这是网络配置 NC4 中策略许可的。在内部，排序服务中的每一个节点都会记录网络配置中的每个通道，因此在网络层面有每个通道创建的记录。</p>
 
-<h2 id="配置环境变量">配置环境变量</h2>
+<p>这意味着，虽然排序服务节点 O4 是创建联盟 X1 和 X2 以及通道 C1 和 C2 的参与者，但是网络的<strong>智能</strong>包含在 O4 遵循的网络配置 NC4 中。只要 O4 表现良好，并且在处理网络资源时正确地实施在 NC4 中定义的策略，我们的网络将做出所有组织都同意的行为。在许多方面，NC4 都比 O4 更重要，因为它最根本地控制网络访问。</p>
 
-<p>为 <code>nginx</code> 设置用户的环境变量。首先，在用户根目录下创建 <code>bin/</code> 目录，用于存放所有应用程序的软链接。再将 <code>bin/</code> 目录加入 <code>PATH</code>，并立即生效。最后，在 <code>bin/</code> 目录下创建 <code>nginx</code> 的软链接。</p>
+<p>相同的原则适用于有关 peer 的通道配置。在我们的网络中，P1 和 P2 都是好的执行者。当 peer  节点 P1 和 P2 与客户端应用程序 A1 或 A2 交互时，它们每个都使用通道配置 CC1 中定义的策略控制来控制对通道 C1 资源的访问。</p>
 
-<pre><code class="language-bash">mkdir $HOME/bin
-echo -e '\nPATH=/home/nginx/bin:$PATH\n' &gt;&gt; /home/nginx/.bash_profile
-source /home/nginx/.bash_profile
-ln -s /home/nginx/opt/nginx/sbin/nginx /home/nginx/bin
-</code></pre>
+<p>例如，如果 A1 想要访问在 peer 节点 P1 或 P2 上的智能合约链码 S5 时，每个 peer 节点使用其 CC1 的副本来确定 A1 可以访问的操作。例如，根据 CC1 中的策略定义，允许 A1 从账本 L1 上读写数据。稍后我们将看到在通道及其通道配置 CC2 中的参与者有同样的模式。再次，我们可以看到，peer 和应用程序是网络中的关键角色。但它们在通道中的行为更多地由通道配置策略决定，而不是其它任何因素。</p>
 
-<h1 id="启动-nginx">启动 nginx</h1>
+<p>最后，了解网络和通道配置如何在物理上存在将很有帮助。我们可以看到，网络和通道配置在逻辑上是唯一的——网络有一个，每个通道有一个。这非常重要，访问网络或通道的每一个组件必须对授予不同组织的权限有共同的理解。</p>
 
-<p>非超级用户不能监听1024以下的端口。所以，需要让 <code>nginx</code> 监听 <code>8080 端口</code>，再让 <code>firewall</code> 将 <code>80 端口</code> 的流量转发至 <code>8080 端口</code>。</p>
+<p>即使逻辑上是一个配置，但实际上它被构成网络或通道的每一个节点复制并保持一致。例如，在我们的网络中 peer 节点 P1 和 P2 都拥有通道配置 CC1 的副本，而到网络完成时， peer 节点 P2 和 P3 将都拥有通道配置 CC2 的副本。类似地，排序服务节点 O4 拥有网络配置的副本，但在<a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#the-ordering-service">多节点配置</a>中，每一个排序服务节点都将拥有它自己的网络配置副本。</p>
 
-<h2 id="编辑-nginx-配置文件">编辑 nginx 配置文件</h2>
+<p>网络和通道配置都使用同样的区块链技术保持一致，该区块链技术用来对用户交易而非<strong>配置</strong>交易。要改变网络或通道配置，管理员必须提交配置交易来改变网络或通道配置。它必须由恰当的策略中确定负责配置变更的组织签名。该策略被称为 <strong>mod_policy</strong>，我们将<a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#changing-policy">稍后讨论它</a>。</p>
 
-<pre><code>...
-server {
-        listen       8080; # 把80改为8080
-        ...
-}
-...
-</code></pre>
+<p>的确，排序服务节点运行着一个迷你区块链，通过我们前面提到的<strong>系统通道</strong>连接。排序服务节点使用系统通道分发网络配置交易。这些交易用于在每个排序服务节点上合作维护网络配置的一致性副本。类似的方式，<strong>应用程序通道</strong>中的 peer 节点可以分发通道配置交易。同样的，这些交易用于在每个 peer 节点上维护通道配置的一致性副本。</p>
 
-<h2 id="设置端口转发">设置端口转发</h2>
+<p>逻辑上唯一性与物理上分布式之间的这种平衡是 Hyperledger Fabric 中常见的模式。例如，像网络配置，逻辑上是单一的，但实际上是物理上在一组排序服务节点中进行复制的。我们还看到通道配置、账本以及某种程度上的智能合约，它们安装在多个地方，但它们的接口逻辑上存在于通道层面。您会在 Hyperledger Fabric 中一次又一次地看到这种模式，它使得 Hyperledger Fabric 既去中心化又可管理。</p>
 
-<pre><code class="language-bash"># 使用 root 用户操作，需要 root 权限
-su root
-systemctl start firewalld.service
-firewall-cmd --add-forward-port=port=80:proto=tcp:toport=8080 --permanent
-firewall-cmd --reload
-</code></pre>
+<h2 id="添加另一个-peer">添加另一个 peer</h2>
 
-<h2 id="启动-nginx-1">启动 nginx</h2>
+<p>既然组织 R3 能够完全参与通道 C2，让我们把它的基础组件添加仅该通道中。我们将一次添加 peer 及其账本的本地副本、智能合约和客户端应用程序，而不是每次只添加一个组件！</p>
 
-<pre><code class="language-bash">su nginx
-nginx
-</code></pre>
+<p>让我们看一下添加了组织 R3 的组件的网络：</p>
 
-<p>此时，浏览器打开，就能够看到 nginx 的欢迎页了。</p>
+<p><img src="/images/2019-12-11T11-img-2.png" alt="peer2" /></p>
 
-<h2 id="上传静态站点">上传静态站点</h2>
+<p><em>这张图显示了与网络 N 中的通道 C1 和 C2 的如下事实：客户端应用程序 A1 和 A2 可以使用通道 C1 与 P1、P2 和排序服务 O4 通信；客户端应用程序 A3 可以使用通道 C2 与 P3 和排序服务 O4 通信。通信服务 O4 可以利用通道 C1 和 C2 的通信服务。通道配置 CC1 适用于通道 C1，CC2 适用于通道 C2。</em></p>
 
-<p>将由 Hugo 生成的站点上传至服务器，推荐在 <code>nginx</code> 用户的根目录下，这样比较方便。关于如何使用 Hugo 生成静态站点，请查看<a href="/2019/12/hugo博客搭建之一部署在github-page上/">上一篇</a>。</p>
+<p>首先，请注意，由于 peer 节点 P3 连接到通道 C2，因此它对那些使用通道 C1 的 peer 节点有<strong>不同的</strong>账本 L2。账本 L2 的有效作用域是通道 C2。账本 L1 是完全独立的，它的作用域是通道 C1。这是有道理的——通道 C2 的目的是在联盟 X2 的成员之间提供私密通信，账本 L2 是其交易的私密存储。</p>
 
-<h2 id="配置站点">配置站点</h2>
+<p>类似的方式，在peer 节点 P3 上安装并在通道 C2 上实例化的智能合约 S6，用于提供对账本 L2 的受控访问。应用程序 A3 限制可以使用通道 C2 调用由智能合约 S6 提供的服务，生成可以在网络中被每个账本 L2 接受的交易。</p>
 
-<p>再次编辑 <code>nginx</code> 的配置文件，设置站点域名、路由等。</p>
-
-<pre><code>server {
-    listen       8080;
-    server_name  domain_name; # 博客域名
-    
-    location / {
-        root   /path/to/site; # 博客站点的目录，注意要使用绝对路径
-        index  index.html;
-    }
-    ...
-}
-</code></pre>
-
-<p>重新启动 <code>nginx</code>：</p>
-
-<pre><code class="language-bash">$ nginx -s reload
-</code></pre>
-
-<p>此时，浏览器打开 <code>服务器的 IP 地址</code>，就能够看到您的博客首页了。</p>
-
-<h1 id="dns-解析">DNS 解析</h1>
-
-<p>在 DNS 解析服务上，将 <code>域名</code> 指向 <code>服务器的 IP 地址</code>。浏览器打开 <code>域名</code>，就可以看到博客页面了。</p>
-
-<h1 id="网站备案">网站备案</h1>
-
-<p>注意，需要尽快进行网站备案，否则，很快就看不到您的网站了。</p>
-
-<h1 id="软件版本">软件版本</h1>
-
-<p>本文涉及到的软件版本如下：</p>
-
-<ul>
-<li>CentOS Linux release 7.5.1804 (Core)</li>
-<li>nginx 1.16.1</li>
-<li>Hugo 0.60.1</li>
-</ul>
+<p>此时，我们有了一个定义了两个完全独立通道的网络。这些通道为组织之间的相互交易提供了独立管理的设施。同样地，这是去中心化的工作，我们有一个在控制和自治之间的平衡。这是通过应用于受到不同组织控制和影响的通道策略来实现的。</p>
 
 <hr />
 
 <h1 id="参考">参考</h1>
 
-<p><a href="https://www.cnblogs.com/remyyoung/p/11244840.html">https://www.cnblogs.com/remyyoung/p/11244840.html</a></p>
-
-<p><a href="https://www.cnblogs.com/boonya/p/7907999.html">https://www.cnblogs.com/boonya/p/7907999.html</a></p>
+<p><a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#adding-another-consortium-definition">https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#adding-another-consortium-definition</a></p>
 
     </div>
     <div class="article-footer">
@@ -457,7 +383,7 @@ nginx
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接: </strong>
-      <a href="https://devjue.github.io/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%BA%8C%E9%83%A8%E7%BD%B2%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A/" title="Hugo 博客搭建之二：部署在服务器上" target="_blank" rel="external">https://devjue.github.io/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%BA%8C%E9%83%A8%E7%BD%B2%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A/</a>
+      <a href="https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%BA%94key-concepts-blockchain-network-5/" title="Hyperledger Fabric 1.4 官方文档翻译之五：Key Concepts - Blockchain network (5)" target="_blank" rel="external">https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%BA%94key-concepts-blockchain-network-5/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -489,13 +415,13 @@ nginx
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://devjue.github.io/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%B8%80%E9%83%A8%E7%BD%B2%E5%9C%A8github-page%E4%B8%8A/" title="Hugo 博客搭建之一：部署在 GitHub Page 上"><i
+                <a href="https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E5%9B%9Bkey-concepts-blockchain-network-4/" title="Hyperledger Fabric 1.4 官方文档翻译之四：Key Concepts - Blockchain network (4)"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
             </li>
             <li class="next">
-                <a href="https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%BA%8Ckey-concepts-blockchain-network-2/"
-                    title="Hyperledger Fabric 1.4 官方文档翻译之二：Key Concepts - Blockchain network (2)"><span>上一篇&nbsp;&nbsp;</span><i
+                <a href="https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E5%85%ADkey-concepts-blockchain-network-6/"
+                    title="Hyperledger Fabric 1.4 官方文档翻译之六：Key Concepts - Blockchain network (6)"><span>上一篇&nbsp;&nbsp;</span><i
                         class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             

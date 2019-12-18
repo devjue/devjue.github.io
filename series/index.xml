@@ -10,7 +10,7 @@
     
     
     <item>
-      <title>Hugo博客搭建之三：使用GitHub对博客版本进行管理</title>
+      <title>Hugo 博客搭建之三：使用 GitHub 对博客版本进行管理</title>
       <link>https://devjue.github.io/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%B8%89%E4%BD%BF%E7%94%A8github%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%89%88%E6%9C%AC%E8%BF%9B%E8%A1%8C%E7%AE%A1%E7%90%86/</link>
       <pubDate>Mon, 16 Dec 2019 18:19:15 +0800</pubDate>
       
@@ -19,7 +19,61 @@
     </item>
     
     <item>
-      <title>Hugo博客搭建之二：部署在服务器上</title>
+      <title>Hyperledger Fabric 1.4 官方文档翻译之七：Key Concepts - Blockchain network (7)</title>
+      <link>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%B8%83key-concepts-blockchain-network-7/</link>
+      <pubDate>Mon, 16 Dec 2019 16:53:18 +0800</pubDate>
+      
+      <guid>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%B8%83key-concepts-blockchain-network-7/</guid>
+      <description>网络完全形成 让我们使用一致的视觉词汇来回顾一下我们的网络。我们已经使用更紧凑的视觉语法对其进行稍微的重组，因为它可以更好地适应更大的拓扑： 在</description>
+    </item>
+    
+    <item>
+      <title>Hyperledger Fabric 1.4 官方文档翻译之六：Key Concepts - Blockchain network (6)</title>
+      <link>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E5%85%ADkey-concepts-blockchain-network-6/</link>
+      <pubDate>Fri, 13 Dec 2019 10:05:08 +0800</pubDate>
+      
+      <guid>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E5%85%ADkey-concepts-blockchain-network-6/</guid>
+      <description>https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#joining-a-peer-to-multiple-channels 把 peer 加入多个通道 在网络开发的最后阶段，让我们将重点转回到组织 R2。我们可以利用 R2 同时是联盟 X1 和 X2 成员的事实，将 R2 加入多个通道： 这张图显示了</description>
+    </item>
+    
+    <item>
+      <title>Hyperledger Fabric 1.4 官方文档翻译之五：Key Concepts - Blockchain network (5)</title>
+      <link>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%BA%94key-concepts-blockchain-network-5/</link>
+      <pubDate>Wed, 11 Dec 2019 11:12:07 +0800</pubDate>
+      
+      <guid>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%BA%94key-concepts-blockchain-network-5/</guid>
+      <description>添加另一个联盟定义 在网络开发的下一阶段，我们介绍组织R3。我们将要为组织 R2 和 R3 提供一个单独应用程序通道，使他们能够互相交易。这个应用程序通道</description>
+    </item>
+    
+    <item>
+      <title>Hyperledger Fabric 1.4 官方文档翻译之四：Key Concepts - Blockchain network (4)</title>
+      <link>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E5%9B%9Bkey-concepts-blockchain-network-4/</link>
+      <pubDate>Mon, 09 Dec 2019 11:23:53 +0800</pubDate>
+      
+      <guid>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E5%9B%9Bkey-concepts-blockchain-network-4/</guid>
+      <description>网络完成 回想一下，我们的目标是为联盟 X1（组织 R1 和 R2）创建一个通道。网络开发的下一节会看到组织 R2 把它的基础设施添加到网络中。 让我们看一下网</description>
+    </item>
+    
+    <item>
+      <title>Hyperledger Fabric 1.4 官方文档翻译之三：Key Concepts - Blockchain network (3)</title>
+      <link>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%B8%89key-concepts-blockchain-network-3/</link>
+      <pubDate>Sat, 07 Dec 2019 09:31:50 +0800</pubDate>
+      
+      <guid>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%B8%89key-concepts-blockchain-network-3/</guid>
+      <description>peer 和账本 现在，让我们使用通道把区块链网络和组织连接起来。在网络开发的下一阶段，我们可以看到网络 N 获得了两个新组件，即 P1 和账本实例 L1。 Peer 节点</description>
+    </item>
+    
+    <item>
+      <title>Hyperledger Fabric 1.4 官方文档翻译之二：Key Concepts - Blockchain network (2)</title>
+      <link>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%BA%8Ckey-concepts-blockchain-network-2/</link>
+      <pubDate>Fri, 06 Dec 2019 16:03:30 +0800</pubDate>
+      
+      <guid>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%BA%8Ckey-concepts-blockchain-network-2/</guid>
+      <description>添加网络管理员 最初，NC4 被配置为仅允许 R4 的用户拥有网络管理权限。下一阶段，我们将允许组织 R1 的用户管理网络。让我们看看网络如何演进： 组织 R4 更</description>
+    </item>
+    
+    <item>
+      <title>Hugo 博客搭建之二：部署在服务器上</title>
       <link>https://devjue.github.io/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%BA%8C%E9%83%A8%E7%BD%B2%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A/</link>
       <pubDate>Fri, 06 Dec 2019 09:01:30 +0700</pubDate>
       
@@ -28,12 +82,21 @@
     </item>
     
     <item>
-      <title>Hugo博客搭建之一：部署在GitHub Page上</title>
+      <title>Hugo 博客搭建之一：部署在 GitHub Page 上</title>
       <link>https://devjue.github.io/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%B8%80%E9%83%A8%E7%BD%B2%E5%9C%A8github-page%E4%B8%8A/</link>
       <pubDate>Thu, 05 Dec 2019 13:02:56 +0800</pubDate>
       
       <guid>https://devjue.github.io/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%B8%80%E9%83%A8%E7%BD%B2%E5%9C%A8github-page%E4%B8%8A/</guid>
       <description>安装 Hugo mac 推荐使用 brew 进行安装： $ brew install hugo windows 推荐从 GitHub 直接下载最新的稳定的二进制版本。然后，将其加入环境变量。 源码安装 如果网络条件良好，也可以使用源</description>
+    </item>
+    
+    <item>
+      <title>Hyperledger Fabric 1.4 官方文档翻译之一：Key Concepts - Blockchain network (1)</title>
+      <link>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%B8%80key-concepts-blockchain-network-1/</link>
+      <pubDate>Tue, 03 Dec 2019 17:07:39 +0800</pubDate>
+      
+      <guid>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%B8%80key-concepts-blockchain-network-1/</guid>
+      <description>区块链 这篇文章将在概念层面讲述 Hyperledger Fabric 如何允许组织在形成区块链网络方面进行协作。如果您是架构师、管理员或开发者，则可以利用本篇文章深入了解 Hyperledger Fabric 区</description>
     </item>
     
   </channel>
