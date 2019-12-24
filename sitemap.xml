@@ -4,7 +4,63 @@
   
   <url>
     <loc>https://devjue.github.io/categories/</loc>
-    <lastmod>2019-12-16T18:19:15+08:00</lastmod>
+    <lastmod>2019-12-20T21:22:20+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://devjue.github.io/tags/fabric/</loc>
+    <lastmod>2019-12-20T21:22:20+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://devjue.github.io/tags/hyperledger/</loc>
+    <lastmod>2019-12-20T21:22:20+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://devjue.github.io/2019/12/hyperledger-fabric-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2019-12-20T21:22:20+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://devjue.github.io/posts/</loc>
+    <lastmod>2019-12-20T21:22:20+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://devjue.github.io/</loc>
+    <lastmod>2019-12-20T21:22:20+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://devjue.github.io/tags/</loc>
+    <lastmod>2019-12-20T21:22:20+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://devjue.github.io/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/</loc>
+    <lastmod>2019-12-20T21:22:20+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%B8%83key-concepts-blockchain-network-7/</loc>
+    <lastmod>2019-12-18T16:53:18+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -24,57 +80,8 @@
   </url>
   
   <url>
-    <loc>https://devjue.github.io/posts/</loc>
-    <lastmod>2019-12-16T18:19:15+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://devjue.github.io/</loc>
-    <lastmod>2019-12-16T18:19:15+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://devjue.github.io/tags/</loc>
-    <lastmod>2019-12-16T18:19:15+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://devjue.github.io/categories/web/</loc>
     <lastmod>2019-12-16T18:19:15+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://devjue.github.io/tags/fabric/</loc>
-    <lastmod>2019-12-16T16:53:18+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://devjue.github.io/tags/hyperledger/</loc>
-    <lastmod>2019-12-16T16:53:18+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%B8%83key-concepts-blockchain-network-7/</loc>
-    <lastmod>2019-12-16T16:53:18+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://devjue.github.io/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/</loc>
-    <lastmod>2019-12-16T16:53:18+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
