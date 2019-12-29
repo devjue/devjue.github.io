@@ -10,6 +10,24 @@
     
     
     <item>
+      <title>Hyperledger Fabric 1.4 官方文档翻译之八：Key Concepts - Peers - Peers and Orderers</title>
+      <link>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E5%85%ABkey-concepts-peers-peers-and-orderers/</link>
+      <pubDate>Sun, 29 Dec 2019 21:42:54 +0800</pubDate>
+      
+      <guid>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E5%85%ABkey-concepts-peers-peers-and-orderers/</guid>
+      <description>Peer 和 Orderer 我们已经看到 peer 构成了区块链网络的基础，托管了账本和智能合约，它们可以被与 peer 连接的应用程序查询和更新。但是，应用程序和 peer 进行交互来确保每</description>
+    </item>
+    
+    <item>
+      <title>First-Network Byfn.sh 解析</title>
+      <link>https://devjue.github.io/2019/12/first-network-byfn.sh-%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Thu, 26 Dec 2019 00:24:40 +0800</pubDate>
+      
+      <guid>https://devjue.github.io/2019/12/first-network-byfn.sh-%E8%A7%A3%E6%9E%90/</guid>
+      <description>first-network 是 hyperledger/fabric-samples 项目的一个区块链示例。该示例向我们展示了一个简单的区块链，以及如何在区块链网络上安装、实例化、查询、调用链码。 常用命令 first-network 提供了一个脚本</description>
+    </item>
+    
+    <item>
       <title>Hyperledger Fabric 环境安装</title>
       <link>https://devjue.github.io/2019/12/hyperledger-fabric-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/</link>
       <pubDate>Fri, 20 Dec 2019 21:22:20 +0800</pubDate>
@@ -51,7 +69,7 @@
       <pubDate>Wed, 11 Dec 2019 11:12:07 +0800</pubDate>
       
       <guid>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%BA%94key-concepts-blockchain-network-5/</guid>
-      <description>添加另一个联盟定义 在网络开发的下一阶段，我们介绍组织R3。我们将要为组织 R2 和 R3 提供一个单独应用程序通道，使他们能够互相交易。这个应用程序通道</description>
+      <description>添加另一个联盟定义 在网络开发的下一阶段，我们介绍组织 R3。我们将要为组织 R2 和 R3 提供一个单独应用程序通道，使他们能够互相交易。这个应用程序通道</description>
     </item>
     
     <item>
@@ -69,7 +87,7 @@
       <pubDate>Sat, 07 Dec 2019 09:31:50 +0800</pubDate>
       
       <guid>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%B8%89key-concepts-blockchain-network-3/</guid>
-      <description>peer 和账本 现在，让我们使用通道把区块链网络和组织连接起来。在网络开发的下一阶段，我们可以看到网络 N 获得了两个新组件，即 P1 和账本实例 L1。 Peer 节点</description>
+      <description>peer 和账本 现在，让我们使用通道把区块链网络和组织连接起来。在网络开发的下一阶段，我们可以看到网络 N 获得了两个新组件，即 peer 节点 P1 和账本实例 L1。</description>
     </item>
     
     <item>
