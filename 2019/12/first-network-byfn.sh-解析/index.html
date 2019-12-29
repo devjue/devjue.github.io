@@ -24,7 +24,7 @@
   
   
   <meta name="description" content="first-network 是 hyperledger/fabric-samples 项目的一个区块链示例。该示例向我们展示了一个简单的区块链，以及如何在区块链网络上安装、实例化、查询、调用链码。 常用命令 first-network 提供了一个脚本" />
-  <meta name="generator" content="Hugo 0.61.0-DEV with theme pure" />
+  <meta name="generator" content="Hugo 0.58.2 with theme pure" />
   <title>First-Network Byfn.sh 解析 - Pure theme for Hugo</title>
   
 
@@ -39,13 +39,16 @@
 <meta property="article:modified_time" content="2019-12-26T00:24:40+08:00" />
 <meta itemprop="name" content="First-Network Byfn.sh 解析">
 <meta itemprop="description" content="first-network 是 hyperledger/fabric-samples 项目的一个区块链示例。该示例向我们展示了一个简单的区块链，以及如何在区块链网络上安装、实例化、查询、调用链码。 常用命令 first-network 提供了一个脚本">
+
+
 <meta itemprop="datePublished" content="2019-12-26T00:24:40&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-26T00:24:40&#43;08:00" />
-<meta itemprop="wordCount" content="1715">
+<meta itemprop="wordCount" content="1727">
 
 
 
-<meta itemprop="keywords" content="Hyperledger,Fabric,byfn.sh," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Hyperledger,Fabric,byfn.sh," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="First-Network Byfn.sh 解析"/>
 <meta name="twitter:description" content="first-network 是 hyperledger/fabric-samples 项目的一个区块链示例。该示例向我们展示了一个简单的区块链，以及如何在区块链网络上安装、实例化、查询、调用链码。 常用命令 first-network 提供了一个脚本"/>
 
@@ -302,56 +305,86 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/first-network-byfn.sh-%E8%A7%A3%E6%9E%90/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1715字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1727字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:4分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <p>first-network 是 <a href="https://github.com/hyperledger/fabric-samples">hyperledger/fabric-samples</a> 项目的一个区块链示例。该示例向我们展示了一个简单的区块链，以及如何在区块链网络上安装、实例化、查询、调用链码。</p>
-<h1 id="heading">常用命令</h1>
+      
+
+<p>first-network 是 <a href="https://github.com/hyperledger/fabric-samples">hyperledger/fabric-samples</a> 项目的一个区块链示例。该示例向我们展示了一个简单的区块链，以及如何在区块链网络上安装、实例化、查询、调用链码。</p>
+
+<h1 id="常用命令">常用命令</h1>
+
 <p>first-network 提供了一个脚本 <code>byfn.sh</code>，供测试使用。其中，常用的命令有以下三个：</p>
+
 <ul>
-<li>
-<p>byfn.sh generate</p>
-<p>生成 first-network 需要的所有证书、创世区块和三个配置交易。即本文“准备工作”一节的全部内容。一般地，先执行 <code>byfn.sh generate</code>，再执行 <code>byfn.sh up</code>。</p>
-</li>
-<li>
-<p>byfn.sh up</p>
-<p>启动 first-network，并完成 end-to-end 测试。注意，在启动 first-network 之前，<code>byfn.sh up</code> 会检测目录 <code>crypto-config/</code> 是否存在，该目录是由 <code>byfn.sh generate</code> 生成的，以此判断是否执行过 <code>byfn.sh generate</code>。如果该目录不存在，会先执行与 <code>byfn.sh generate</code> 等效的所有操作，即本文“准备工作”一节的全部内容。</p>
-<p>所以，其实不先执行 <code>byfn.sh generate</code>，也可以直接执行 <code>byfn.sh up</code>。本文将采用此做法。</p>
-</li>
-<li>
-<p>byfn.sh down</p>
-<p>停止 first-network，删除所有 docker 容器、证书、创世区块和三个配置交易，删除由 <code>byfn.sh up</code> 生成的链码镜像。</p>
-</li>
+<li>byfn.sh generate
+<br /></li>
 </ul>
-<h1 id="byfnsh-up">byfn.sh up</h1>
+
+<p>生成 first-network 需要的所有证书、创世区块和三个配置交易。即本文“准备工作”一节的全部内容。一般地，先执行 <code>byfn.sh generate</code>，再执行 <code>byfn.sh up</code>。</p>
+
+<ul>
+<li>byfn.sh up
+<br /></li>
+</ul>
+
+<p>启动 first-network，并完成 end-to-end 测试。注意，在启动 first-network 之前，<code>byfn.sh up</code> 会检测目录 <code>crypto-config/</code> 是否存在，该目录是由 <code>byfn.sh generate</code> 生成的，以此判断是否执行过 <code>byfn.sh generate</code>。如果该目录不存在，会先执行与 <code>byfn.sh generate</code> 等效的所有操作，即本文“准备工作”一节的全部内容。</p>
+
+<p>所以，其实不先执行 <code>byfn.sh generate</code>，也可以直接执行 <code>byfn.sh up</code>。本文将采用此做法。</p>
+
+<ul>
+<li>byfn.sh down
+<br /></li>
+</ul>
+
+<p>停止 first-network，删除所有 docker 容器、证书、创世区块和三个配置交易，删除由 <code>byfn.sh up</code> 生成的链码镜像。</p>
+
+<h1 id="byfn-sh-up">byfn.sh up</h1>
+
 <p>直接执行 <code>byfn.sh up</code>。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ byfn.sh up
-</code></pre></div><h2 id="heading-1">准备工作</h2>
-<h3 id="heading-2">生成证书</h3>
+
+<pre><code class="language-bash">$ byfn.sh up
+</code></pre>
+
+<h2 id="准备工作">准备工作</h2>
+
+<h3 id="生成证书">生成证书</h3>
+
 <p>使用 <strong>cryptogen</strong>，依据 <em>crypto-config.yaml</em> 生成证书。</p>
+
 <pre><code># byfn.sh
 #  - networkUp
 #    - generateCerts
 cryptogen generate --config=./crypto-config.yaml
-</code></pre><p>调用 <code>./ccp-generate.sh</code> 脚本，为 <code>org1</code> 和 <code>org2</code> 生成 ccp 文件。</p>
+</code></pre>
+
+<p>调用 <code>./ccp-generate.sh</code> 脚本，为 <code>org1</code> 和 <code>org2</code> 生成 ccp 文件。</p>
+
 <ul>
 <li><em>connection-org1.json</em></li>
 <li><em>connection-org1.yaml</em></li>
 <li><em>connection-org2.json</em></li>
 <li><em>connection-org2.yaml</em></li>
 </ul>
-<h3 id="heading-3">替换私钥</h3>
+
+<h3 id="替换私钥">替换私钥</h3>
+
 <p>拷贝生成 <em>docker-compose-e2e.yaml</em> 配置文件，并替换 <code>CA1_PRIVATE_KEY</code>、<code>CA2_PRIVATE_KEY</code>。</p>
+
 <pre><code># byfn.sh
 #  - networkUp
 #    - replacePrivateKey
 cp docker-compose-e2e-template.yaml docker-compose-e2e.yaml
 sed $OPTS &quot;s/CA1_PRIVATE_KEY/${PRIV_KEY}/g&quot; docker-compose-e2e.yaml
 sed $OPTS &quot;s/CA2_PRIVATE_KEY/${PRIV_KEY}/g&quot; docker-compose-e2e.yaml
-</code></pre><h3 id="-artifacts">生成 artifacts</h3>
-<p>使用 <strong>cryptogen</strong>，依据 <em>configtx.yaml</em> 在目录 <code>./channel-artifacts</code> 下生成 <em>genesis.block</em>、<em>channel.tx</em>、<em>Org1MSPanchors.tx</em> 和 <em>Org2MSPanchors.tx</em>。</p>
+</code></pre>
+
+<h3 id="生成-artifacts">生成 artifacts</h3>
+
+<p>使用 <strong>cryptogen</strong>，依据 <em>configtx.yaml</em> 在目录 <code>./channel-artifacts</code> 下生成 *genesis.block*、*channel.tx*、<em>Org1MSPanchors.tx</em> 和 *Org2MSPanchors.tx*。</p>
+
 <pre><code># byfn.sh
 #  - networkUp
 #    - generateChannelArtifacts
@@ -363,12 +396,19 @@ configtxgen -profile TwoOrgsChannel -outputCreateChannelTx ./channel-artifacts/c
 configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org1MSP
 # 生成 Org2MSPanchors.tx
 configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org2MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org2MSP
-</code></pre><h2 id="heading-4">初始化容器</h2>
+</code></pre>
+
+<h2 id="初始化容器">初始化容器</h2>
+
 <p>使用 <strong>docker-compose</strong> 加载容器。</p>
+
 <pre><code># byfn.sh
 #  - networkUp
 IMAGE_TAG=$IMAGETAG docker-compose ${COMPOSE_FILES} up -d 2&gt;&amp;1
-</code></pre><p>以下容器运行成功。</p>
+</code></pre>
+
+<p>以下容器运行成功。</p>
+
 <pre><code>IMAGE                             COMMAND           NAMES
 hyperledger/fabric-tools:latest   &quot;/bin/bash&quot;       cli
 hyperledger/fabric-peer:latest    &quot;peer node start&quot; peer0.org2.example.com
@@ -376,8 +416,12 @@ hyperledger/fabric-orderer:latest &quot;orderer&quot;         orderer.example.co
 hyperledger/fabric-peer:latest    &quot;peer node start&quot; peer0.org1.example.com
 hyperledger/fabric-peer:latest    &quot;peer node start&quot; peer1.org2.example.com
 hyperledger/fabric-peer:latest    &quot;peer node start&quot; peer1.org1.example.com
-</code></pre><h2 id="heading-5">初始化网络</h2>
+</code></pre>
+
+<h2 id="初始化网络">初始化网络</h2>
+
 <p>调用 <code>scripts/script.sh</code>，完成 end-to-end 测试。</p>
+
 <pre><code> ____    _____      _      ____    _____
 / ___|  |_   _|    / \    |  _ \  |_   _|
 \___ \    | |     / _ \   | |_) |   | |
@@ -387,56 +431,98 @@ hyperledger/fabric-peer:latest    &quot;peer node start&quot; peer1.org1.example
 Build your first network (BYFN) end-to-end test
 
 ...
-</code></pre><p>引用 <code>scripts/utils.sh</code>。</p>
+</code></pre>
+
+<p>引用 <code>scripts/utils.sh</code>。</p>
+
 <pre><code># scripts/script.sh
 . scripts/utils.sh
-</code></pre><h3 id="-channel">创建 channel</h3>
-<p>使用 <strong>peer channel create</strong>，依据 <em>channel.tx</em>，创建 channel。</p>
+</code></pre>
+
+<h3 id="创建-channel">创建 channel</h3>
+
+<p>使用 <strong>peer channel create</strong>，依据 *channel.tx*，创建 channel。</p>
+
 <pre><code># scripts/script.sh
 # - createChannel
 docker exec cli peer channel create -o orderer.example.com:7050 -c $CHANNEL_NAME -f ./channel-artifacts/channel.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
-</code></pre><h3 id="-channel-1">加入 channel</h3>
+</code></pre>
+
+<h3 id="加入-channel">加入 channel</h3>
+
 <p>循环调用 joinChannelWithRetry [scripts/utils.sh]，使用 <strong>peer channel join</strong>，把 <code>peer0.org1</code>、<code>peer1.org1</code>、<code>peer0.org2</code> 和 <code>peer1.org2</code> 加入 channel。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># scripts/script.sh</span>
-<span style="color:#75715e"># - joinChannel</span>
-<span style="color:#75715e">#   - joinChannelWithRetry [scripts/utils.sh]</span>
+
+<pre><code class="language-bash"># scripts/script.sh
+# - joinChannel
+#   - joinChannelWithRetry [scripts/utils.sh]
 peer channel join -b $CHANNEL_NAME.block
-</code></pre></div><h3 id="-anchor-peer">更新 anchor peer</h3>
-<p>使用 <strong>peer channel update</strong>，依据 <em>Org1MSPanchors.tx</em> 和 <em>Org1MSPanchors.tx</em>，分别更新 <code>peer0.org1</code> 为 <code>org1</code> 的 <code>auchor peer</code>，<code>peer0.org2</code> 为 <code>org2</code> 的 <code>auchor peer</code>。</p>
+</code></pre>
+
+<h3 id="更新-anchor-peer">更新 anchor peer</h3>
+
+<p>使用 <strong>peer channel update</strong>，依据 <em>Org1MSPanchors.tx</em> 和 *Org1MSPanchors.tx*，分别更新 <code>peer0.org1</code> 为 <code>org1</code> 的 <code>auchor peer</code>，<code>peer0.org2</code> 为 <code>org2</code> 的 <code>auchor peer</code>。</p>
+
 <pre><code># scripts/utils.sh
 # - updateAnchorPeers
 docker exec cli peer channel update -o orderer.example.com:7050 -c $CHANNEL_NAME -f ./channel-artifacts/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA 
-</code></pre><h3 id="heading-6">安装链码</h3>
+</code></pre>
+
+<h3 id="安装链码">安装链码</h3>
+
 <p>使用 <strong>peer chaincode install</strong>，将链码 <em>chaincode_example02</em> 安装到 <code>peer0.org1</code> 和 <code>peer0.org2</code> 上。</p>
+
 <pre><code># scripts/utils.sh
 # - installChaincode
 docker exec cli peer chaincode install -n mycc -v ${VERSION} -l ${LANGUAGE} -p ${CC_SRC_PATH}
-</code></pre><h3 id="heading-7">实例化链码</h3>
-<p>使用 <strong>peer chaincode instantiate</strong>，在 <code>peer0.org2</code> 上实例化链码 <em>chaincode_example02</em>。初始化账本上数据：{&ldquo;a&rdquo;:&ldquo;100&rdquo;,&ldquo;b&rdquo;:&ldquo;200&rdquo;}。规定背书策略：任何交易必须要有 <code>org1</code> 和 <code>org2</code> 节点的同时背书。</p>
+</code></pre>
+
+<h3 id="实例化链码">实例化链码</h3>
+
+<p>使用 <strong>peer chaincode instantiate</strong>，在 <code>peer0.org2</code> 上实例化链码 *chaincode_example02*。初始化账本上数据：{&ldquo;a&rdquo;:&ldquo;100&rdquo;,&ldquo;b&rdquo;:&ldquo;200&rdquo;}。规定背书策略：任何交易必须要有 <code>org1</code> 和 <code>org2</code> 节点的同时背书。</p>
+
 <pre><code># scripts/utils.sh
 # - instantiateChaincode
 docker exec cli peer chaincode instantiate -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc -l ${LANGUAGE} -v 1.0 -c '{&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;,&quot;100&quot;,&quot;b&quot;,&quot;200&quot;]}' -P &quot;AND ('Org1MSP.peer','Org2MSP.peer')&quot; 
-</code></pre><h3 id="heading-8">查询链码</h3>
+</code></pre>
+
+<h3 id="查询链码">查询链码</h3>
+
 <p>使用 <strong>peer chaincode query</strong>，在 <code>peer0.org1</code> 上查询 <code>a</code> 的值是 <code>100</code>。注意，之前是在 <code>peer0.org2</code> 上实例化的链码，现在 <code>peer0.org1</code> 上查询 <code>a</code> 成功，说明账本已经跨组织完成同步。</p>
+
 <pre><code># scripts/utils.sh
 # - chaincodeQuery
 docker exec cli peer chaincode query -C $CHANNEL_NAME -n mycc -c '{&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]}'
-</code></pre><h3 id="heading-9">调用链码</h3>
+</code></pre>
+
+<h3 id="调用链码">调用链码</h3>
+
 <p>使用 <strong>peer chaincode invoke</strong>，在 <code>peer0.org1</code> 和 <code>peer0.org2</code> 上调用链码，实现 <code>a</code> 向 <code>b</code> 转让 <code>10</code>，即 <code>a</code> 减少10，<code>b</code> 增加 <code>10</code>。注意，之前在实例化链码时规定的背书策略是，任何交易必须要有 <code>org1</code> 和 <code>org2</code> 节点的同时背书，该调用符合此背书策略，所以交易可以成功。</p>
+
 <pre><code># scripts/utils.sh
 # - chaincodeInvoke
 docker exec cli peer chaincode invoke -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc $PEER_CONN_PARMS -c '{&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;10&quot;]}'
-</code></pre><h3 id="heading-10">安装链码</h3>
+</code></pre>
+
+<h3 id="安装链码-1">安装链码</h3>
+
 <p>使用 <strong>peer chaincode install</strong>，将链码 <em>chaincode_example02</em> 安装到 <code>peer1.org2</code> 上。该操作是为下一步在 <code>peer1.org2</code> 上使用链码做准备。peer 想要使用链码，必须预先安装链码。</p>
+
 <pre><code># scripts/utils.sh
 # - installChaincode
 docker exec cli peer chaincode install -n mycc -v ${VERSION} -l ${LANGUAGE} -p ${CC_SRC_PATH}
-</code></pre><h3 id="heading-11">查询链码</h3>
+</code></pre>
+
+<h3 id="查询链码-1">查询链码</h3>
+
 <p>使用 <strong>peer chaincode query</strong>，在 <code>peer1.org2</code> 上查询 <code>a</code> 的值是 <code>90</code>，说明账本同步成功。</p>
+
 <pre><code># scripts/utils.sh
 # - chaincodeQuery
 docker exec cli peer chaincode query -C $CHANNEL_NAME -n mycc -c '{&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]}'
-</code></pre><h3 id="first-network-">first-network 启动成功</h3>
+</code></pre>
+
+<h3 id="first-network-启动成功">first-network 启动成功</h3>
+
 <pre><code>========= All GOOD, BYFN execution completed ===========
 
 
@@ -446,8 +532,12 @@ docker exec cli peer chaincode query -C $CHANNEL_NAME -n mycc -c '{&quot;Args&qu
 | |___  | |\  | | |_| |
 |_____| |_| \_| |____/
 
-</code></pre><hr>
-<h1 id="heading-12">参考</h1>
+</code></pre>
+
+<hr />
+
+<h1 id="参考">参考</h1>
+
 <p><a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/build_network.html">https://hyperledger-fabric.readthedocs.io/en/release-1.4/build_network.html</a></p>
 
     </div>

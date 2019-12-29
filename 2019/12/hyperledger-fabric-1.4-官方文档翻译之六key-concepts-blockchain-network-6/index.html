@@ -24,7 +24,7 @@
   
   
   <meta name="description" content="https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#joining-a-peer-to-multiple-channels 把 peer 加入多个通道 在网络开发的最后阶段，让我们将重点转回到组织 R2。我们可以利用 R2 同时是联盟 X1 和 X2 成员的事实，将 R2 加入多个通道： 这张图显示了" />
-  <meta name="generator" content="Hugo 0.61.0-DEV with theme pure" />
+  <meta name="generator" content="Hugo 0.58.2 with theme pure" />
   <title>Hyperledger Fabric 1.4 官方文档翻译之六：Key Concepts - Blockchain network (6) - Pure theme for Hugo</title>
   
 
@@ -39,13 +39,16 @@
 <meta property="article:modified_time" content="2019-12-13T10:05:08+08:00" />
 <meta itemprop="name" content="Hyperledger Fabric 1.4 官方文档翻译之六：Key Concepts - Blockchain network (6)">
 <meta itemprop="description" content="https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#joining-a-peer-to-multiple-channels 把 peer 加入多个通道 在网络开发的最后阶段，让我们将重点转回到组织 R2。我们可以利用 R2 同时是联盟 X1 和 X2 成员的事实，将 R2 加入多个通道： 这张图显示了">
+
+
 <meta itemprop="datePublished" content="2019-12-13T10:05:08&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-13T10:05:08&#43;08:00" />
 <meta itemprop="wordCount" content="2586">
 
 
 
-<meta itemprop="keywords" content="Hyperledger,Fabric,翻译," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Hyperledger,Fabric,翻译," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hyperledger Fabric 1.4 官方文档翻译之六：Key Concepts - Blockchain network (6)"/>
 <meta name="twitter:description" content="https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#joining-a-peer-to-multiple-channels 把 peer 加入多个通道 在网络开发的最后阶段，让我们将重点转回到组织 R2。我们可以利用 R2 同时是联盟 X1 和 X2 成员的事实，将 R2 加入多个通道： 这张图显示了"/>
 
@@ -307,40 +310,76 @@
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <p><a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#joining-a-peer-to-multiple-channels">https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#joining-a-peer-to-multiple-channels</a></p>
-<h2 id="-peer-">把 peer 加入多个通道</h2>
+      
+
+<p><a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#joining-a-peer-to-multiple-channels">https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#joining-a-peer-to-multiple-channels</a></p>
+
+<h2 id="把-peer-加入多个通道">把 peer 加入多个通道</h2>
+
 <p>在网络开发的最后阶段，让我们将重点转回到组织 R2。我们可以利用 R2 同时是联盟 X1 和 X2 成员的事实，将 R2 加入多个通道：</p>
-<p><img src="/images/2019-12-13T10-img-0.png" alt="多通道"></p>
+
+<p><img src="/images/2019-12-13T10-img-0.png" alt="多通道" /></p>
+
 <p><em>这张图显示了网络 N 中与通道 C1 和 C2 有关的如下实际情况：应用程序 A1 可以使用通道 C1 与 peer P1、P2 和排序服务 O4 进行通信；应用程序 A2 可以使用通道 C1 与 peer P1 和 P2 进行通信，并使用通道 C2 与 peer P2、P3 和排序服务 O4 进行通信。应用程序 A3 可以使用通道 C2 与 peer P3、P2 和排序服务 O4 进行通信。排序服务可以利用通道 C1 和 C2 的通信服务。通道配置 CC1 适用于通道 C1，CC2 适用于通道 C2。</em></p>
+
 <p>我们可以看到，R2 是网络中的一个特殊组织，因为它是唯一一个同时是两个应用程序通道成员的组织！它可以在通道 C1 上与组织 R1 进行交易，同时还可以在不同的通道 C2 上与组织 R3 进行交易。</p>
+
 <p>注意，peer 节点 P2 如何为通道 C1 安装智能合约 S5，并为通道 C2 安装智能合约 S6。peer 节点 P2 为了不同的账本，同时通过不同的智能合约成为两个通道共同的成员。</p>
+
 <p>这是非常强大的概念——通道同时提供组织隔离的机制和组织间协作的机制。一直以来，此基础设施是由一组独立的组织提供并在其之间共享的。</p>
+
 <p>同样需要非常注意，peer 节点 P2 的行为受其进行交易的通道的非常不同的控制。具体而言，通道配置 CC1 中的策略规定了当 P2 在通道 C1 中进行交易时，P2 可使用的操作，而通道配置 CC2 中的策略控制 P2 在通道 C2 中的行为。</p>
+
 <p>同样，这是理想的——R2 和 R1 为通道 C1 的规则达成一致，而 R2 和 R3 位通道 C2 的规则达成一致。这些规则在各自的通道策略中捕获——通道中的组件可以而且必须遵照达成的共识，使用这些策略来强制执行正确的操作。</p>
+
 <p>类似地，我们可以看到客户端应用程序 A2 现在可以在通道 C1 和 C2 上进行交易。同样，它也将由适当的通道配置中的策略控制。注意，客户端应用程序 A2 和 peer 节点 P2 正在使用混合视觉词汇——线和连接点。您可以看到它们是等效的，是视觉同义词。</p>
-<h3 id="heading">排序服务</h3>
+
+<h3 id="排序服务">排序服务</h3>
+
 <p>细心的读者可能会发现排序服务似乎是一个集中式的组件；它最初用于创建网络，并在网络中连接每一个通道。即使我们把 R1 和 R4 添加到控制排序者的网络配置策略 CN4 中，该节点仍在 R4 的基础设施上运行。在去中心化的世界里，这看上去是错误的！</p>
+
 <p>别担心！我们的示例网络展示了最简单的排序服务配置，来帮助您理解网络管理的核心概念。事实上，排序服务自己也可以是去中心化的！我们前面提到排序服务可以由不同组织拥有的许多独立节点组成，因此让我们看看如何在示例网络中完成该工作。</p>
+
 <p>让我们看一下更现实的排序服务节点配置：</p>
-<p><img src="/images/2019-12-13T10-img-1.png" alt="最终网络"></p>
+
+<p><img src="/images/2019-12-13T10-img-1.png" alt="最终网络" /></p>
+
 <p><em>多个组织的排序服务。排序服务由排序服务节点 O1 和 O4 组成。O1 由组织 R1 提供，O4 由组织 R4 提供。网络配置 NC4 为组织 R1 和 R4 的参与者定义网络资源权限。</em></p>
+
 <p>我们可以看到，该排序服务完全去中心化——它既在组织 R1 中运行，也在组织 R4 中运行。网络配置策略 NC4 允许 R1 和 R4 在网络资源上享有同等权限。组织 R1 和 R4 的客户端应用程序和 peer 节点，可以通过连接到节点 O1 或节点 O4 来管理网络资源，因为 O1 和 O4 这两个节点的行为一致，就像网络配置 NC4 中策略定义的那样。实践中，来自特定组织的参与者往往使用它们自己组织提供的基础设施，但也并不总是这样。</p>
-<h3 id="heading-1">去中心化的交易分发</h3>
+
+<h3 id="去中心化的交易分发">去中心化的交易分发</h3>
+
 <p>除了作为网络管理核心，排序服务还提供了另一个关键功能——他是交易的分发核心。排序服务是一个从应用程序中收集已背书交易，并将其按序打包进交易区块的组件。随后，这些区块将分发到通道中的每一个 peer 节点。这些提交节点中的每一个都记录交易，不论交易有效或者无效，并相应地更新它们本地的账本副本。</p>
+
 <p>注意，排序服务节点 O4 在通道 C1 上与它在网络 N 上扮演的角色非常不同。当在通道层面时，O4 的作用是在通道 C1 中收集交易并分发区块。它依据通道配置 CC1 中定义的策略而工作。相反，当在网络层面时，O4 的作用是为网络资源提供管理核心，它依据的是网络配置 NC4 中定义的策略。再次注意，这些作用是如何被不同的通道和网络配置各自定义的。这应该使您增强了在 Hyperledger Fabric 中根据配置声明策略的重要性。策略既定义了联盟中每个成员协商一致的行为，也被其所控制。</p>
+
 <p>我们可以看到，排序服务，像 Hyperledger Fabric 中的其它组件一样，是完全去中心化的组件。不论作为网络管理核心或是通道中区块的分发者，它的节点都可以根据需要分布在网络的多个组织中。</p>
-<h3 id="heading-2">变更策略</h3>
+
+<h3 id="变更策略">变更策略</h3>
+
 <p>在示例网络的探索过程中，我们已经了解到系统中策略对控制参与者行为的重要性。我们只讨论了一小部分可用的策略，而还有很多可以被声明定义，以控制行为的各个方面。这些单独的策略会在文档的其它地方进行讨论。</p>
+
 <p>最终要的是，Hyperledger Fabric 提供了一个唯一强大的策略，它允许网络和通道管理员自行管理策略的变更！基本的哲学是无论在组织内部或之间发生，或是由外部监管者推行，策略变更是一致性的。例如，新的组织可能加入通道，或者已存在的组织拥有的权限可能增加或减少。让我们进一步研究 Hyperledger Fabric 中的变更策略如何实施。</p>
+
 <p>理解的关键点是策略变更是策略自行管理的。<strong>修改策略</strong>，或简称 <strong>mod_policy</strong>，是网络或者通道配置中管理变更的第一种策略。让我们给两个已经在网络中使用 mod_policy 管理变更的简单例子。</p>
+
 <p>第一个例子是网络初始化的时候。此时，只有组织 R4 被允许管理网络。实践中，这是通过使 R4 成为网络配置 NC4 中定义的唯一拥有网络资源许可的组织来实现的。此外，NC4 的 mod_police 只提及组织 R4——只有 R4 被允许来更改配置。</p>
+
 <p>然后，我们对网络 N 进行了演进，允许组织 R1 也可以管理网络。R4 通过把 R1 添加到用于通道创建和联盟创建的策略中来做到这一点。由于此更改，R1 能够定义联盟 X1 和 X2，并创建通道 C1 和 C2。R1 对网络配置中的通道和联盟策略具有同等的管理权限。</p>
+
 <p>但是，R4 可以通过网络配置给 R1 授予更多的权限！R4 可以把 R1 添加到 mod_policy 中，以便 R1 也能够管理网络策略的变更。</p>
+
 <p>第二个例子比第一个更强大，因为 R1 现在对网络配置 NC4 拥有完全控制权限！这意味着 R1 原则上可以从网络中删除 R4 点管理权限。在实践中，R4 将配置 mod_policy，以便 R4 也需要批准更改，或者 mod_policy 中的所有组织都必须批准更改。有很大的灵活性使 mod_policy 复杂到可以支持所需的任何更改流程。</p>
+
 <p>这是工作中的 mod_policy ——它被允许从基本配置向复杂配置优雅地演进。所有组织参与达成一致的情况总在发生。mod_policy 的行为类似网络或通道配置中的每个其它策略，它定义了一组允许改变 mod_policy 本身的组织。</p>
+
 <p>在本小节中，我们仅涉及了策略的权限和特定的 mod_policy。在策略主题中将对其进行更详细的讨论，但现在让我们回到完成的网络中！</p>
-<hr>
-<h1 id="heading-3">参考</h1>
+
+<hr />
+
+<h1 id="参考">参考</h1>
+
 <p><a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#joining-a-peer-to-multiple-channels">https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#joining-a-peer-to-multiple-channels</a></p>
 
     </div>

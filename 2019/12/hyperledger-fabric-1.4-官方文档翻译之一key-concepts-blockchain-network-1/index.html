@@ -24,7 +24,7 @@
   
   
   <meta name="description" content="区块链 这篇文章将在概念层面讲述 Hyperledger Fabric 如何允许组织在形成区块链网络方面进行协作。如果您是架构师、管理员或开发者，则可以利用本篇文章深入了解 Hyperledger Fabric 区" />
-  <meta name="generator" content="Hugo 0.61.0-DEV with theme pure" />
+  <meta name="generator" content="Hugo 0.58.2 with theme pure" />
   <title>Hyperledger Fabric 1.4 官方文档翻译之一：Key Concepts - Blockchain network (1) - Pure theme for Hugo</title>
   
 
@@ -39,13 +39,16 @@
 <meta property="article:modified_time" content="2019-12-03T17:07:39+08:00" />
 <meta itemprop="name" content="Hyperledger Fabric 1.4 官方文档翻译之一：Key Concepts - Blockchain network (1)">
 <meta itemprop="description" content="区块链 这篇文章将在概念层面讲述 Hyperledger Fabric 如何允许组织在形成区块链网络方面进行协作。如果您是架构师、管理员或开发者，则可以利用本篇文章深入了解 Hyperledger Fabric 区">
+
+
 <meta itemprop="datePublished" content="2019-12-03T17:07:39&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-03T17:07:39&#43;08:00" />
 <meta itemprop="wordCount" content="2155">
 
 
 
-<meta itemprop="keywords" content="Hyperledger,Fabric,翻译," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Hyperledger,Fabric,翻译," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hyperledger Fabric 1.4 官方文档翻译之一：Key Concepts - Blockchain network (1)"/>
 <meta name="twitter:description" content="区块链 这篇文章将在概念层面讲述 Hyperledger Fabric 如何允许组织在形成区块链网络方面进行协作。如果您是架构师、管理员或开发者，则可以利用本篇文章深入了解 Hyperledger Fabric 区"/>
 
@@ -307,91 +310,102 @@
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <h1 id="heading">区块链</h1>
+      
+
+<h1 id="区块链">区块链</h1>
+
 <p>这篇文章将在概念层面讲述 Hyperledger Fabric 如何允许组织在形成区块链网络方面进行协作。如果您是架构师、管理员或开发者，则可以利用本篇文章深入了解 Hyperledger Fabric 区块链网络中的主要结构和流程组件。本篇文章将使用一个可管理的工作示例来介绍区块链网络中的所有主要组件。当了解这个示例后，您可以在文档的其它地方阅读更多有关这些组件的详细信息，或者尝试<a href="https://hyperledger-fabric.readthedocs.io/en/latest/build_network.html">建立一个示例网络</a>。</p>
+
 <p>阅读这篇文章并了解策略的概念后，您将对为控制一个已部署的区块链网络，组织需要建立策略这样的决定有深入了解。您还将了解组织是如何使用已声明的策略进行网络演进的管理，这些策略是 Hyperledger Fabric 的重要功能。简言之，您将了解 Hyperledger Fabric 的主要技术组件及组织需要对其做出的决策。</p>
-<h2 id="heading-1">什么是区块链网络</h2>
+
+<h2 id="什么是区块链网络">什么是区块链网络</h2>
+
 <p>区块链网络是一种技术基础设施，它为应用程序提供账本和智能合约（链码）服务。首先，智能合约用于生成交易，这些交易随后会被分发到网络中的每一个 peer（译者按：由于“peer”已成为专有名词，本文将直接使用“peer”，而不将其翻译为“对等节点”）节点，交易被永远不变地记录在 peer 节点的账本副本上。应用程序的用户可以是使用客户端应用程序的终端用户或区块链网络的管理员。</p>
+
 <p>大多数情况下，多个<a href="https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html#organization">组织</a>聚集在一起作为<a href="https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html#consortium">联盟</a>形成网络，它们的权限由最初配置网络时联盟协商一致的一组<a href="https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html#policy">策略</a>决定。此外，网络策略可能会随着时间的推移而改变，这取决于联盟内部组织的一致同意，当讨论 <em>修改策略</em> 时，我们会发现这一点。</p>
-<h2 id="heading-2">示例网络</h2>
+
+<h2 id="示例网络">示例网络</h2>
+
 <p>在开始前，向您展示我们的目标。这是表示我们示例网络最终状态的图。</p>
+
 <p>不必担心，这可能看起来很复杂！在阅读本篇文章的过程中，我们将一点一点地把网络建立起来，以便您了解组织 R1、R2、R3 和 R4 如何为网络贡献基础设施以帮助形成网络。该基础设施实现了区块链网络，并且被网络中的组织（例如，可以添加新组织的组织）一致同意的策略所管理。您将发现应用程序如何使用由区块链网络提供的账本和智能合约服务。</p>
-<p><img src="/images/2019-12-03T17-img-0.png" alt="示例网络图"></p>
+
+<p><img src="/images/2019-12-03T17-img-0.png" alt="示例网络图" /></p>
+
 <ul>
-<li>
-<p>组织（Organization）：R1、R2、R3、R4</p>
+<li><p>组织（Organization）：R1、R2、R3、R4</p>
+
 <ul>
-<li>
-<p>R1、R2、R3 和 R4 这四个组织共同决定并签署协议，它们将建立并利用 Hyperledger Fabric 网络。</p>
-</li>
-<li>
-<p>R4 被指定为网络的初始化者——它被授予创建网络最初版本的权力。R4 无意在网络中执行业务交易。</p>
-</li>
-<li>
-<p>R1 和 R2 以及 R2 和 R3 都需要在整个网络内进行隐私通信。</p>
-</li>
-<li>
-<p>R1 有一个客户端应用，通过通道 C1 执行业务交易。R2 也有一个客户端应用，通过 C1 和 C2 进行类似的工作。R3 有一个客户端应用，通过 C2 做相同的工作。</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Peer 节点：P1、P2、P3</p>
+<li><p>R1、R2、R3 和 R4 这四个组织共同决定并签署协议，它们将建立并利用 Hyperledger Fabric 网络。</p></li>
+
+<li><p>R4 被指定为网络的初始化者——它被授予创建网络最初版本的权力。R4 无意在网络中执行业务交易。</p></li>
+
+<li><p>R1 和 R2 以及 R2 和 R3 都需要在整个网络内进行隐私通信。</p></li>
+
+<li><p>R1 有一个客户端应用，通过通道 C1 执行业务交易。R2 也有一个客户端应用，通过 C1 和 C2 进行类似的工作。R3 有一个客户端应用，通过 C2 做相同的工作。</p></li>
+</ul></li>
+
+<li><p>Peer 节点：P1、P2、P3</p>
+
 <ul>
 <li>P1 维护一个与 C1 连接的账本副本 L1。 P2 维护一个与 C1 连接的账本副本 L1 和与 C2 连接的账本副本 L2。P3 维护一个与 C2 连接的账本副本 L2。</li>
-</ul>
-</li>
-<li>
-<p>通道（Channel）：C1、C2</p>
-</li>
-<li>
-<p>账本（Ledger）：L1、L2</p>
-</li>
-<li>
-<p>网络配置（Network Configuration）：NC4</p>
+</ul></li>
+
+<li><p>通道（Channel）：C1、C2</p></li>
+
+<li><p>账本（Ledger）：L1、L2</p></li>
+
+<li><p>网络配置（Network Configuration）：NC4</p>
+
 <ul>
 <li>本网络依赖网络配置 NC4 中指定的策略规则进行管理。本网络受 R1 和 R4 管理。</li>
-</ul>
-</li>
-<li>
-<p>通道配置（Channel Configuration）：CC4</p>
+</ul></li>
+
+<li><p>通道配置（Channel Configuration）：CC4</p>
+
 <ul>
-<li>
-<p>C1 依赖通道配置 CC1 中指定的策略规则进行管理。C1 受 R1 和 R2 管理。</p>
-</li>
-<li>
-<p>C2 依赖通道配置 CC2 中指定的策略规则进行管理。C2 受 R2 和 R3 管理。</p>
-</li>
-</ul>
-</li>
-<li>
-<p>排序服务（Ordering Service）：O4</p>
+<li><p>C1 依赖通道配置 CC1 中指定的策略规则进行管理。C1 受 R1 和 R2 管理。</p></li>
+
+<li><p>C2 依赖通道配置 CC2 中指定的策略规则进行管理。C2 受 R2 和 R3 管理。</p></li>
+</ul></li>
+
+<li><p>排序服务（Ordering Service）：O4</p>
+
 <ul>
-<li>
-<p>有一个排序服务O4，作为N的网络管理节点，并使用系统通道。</p>
-</li>
-<li>
-<p>排序服务还支持应用程序通道 C1 和 C2，使交易排序打包进块里，为分发做准备。四个组织中每一个都有一个首选的证书颁发机构（Certificate Authority）。</p>
-</li>
+<li><p>有一个排序服务O4，作为N的网络管理节点，并使用系统通道。</p></li>
+
+<li><p>排序服务还支持应用程序通道 C1 和 C2，使交易排序打包进块里，为分发做准备。四个组织中每一个都有一个首选的证书颁发机构（Certificate Authority）。</p></li>
+</ul></li>
+
+<li><p>颁发机构（Certificate Authority）：CA1、CA2、CA3、CA4</p></li>
 </ul>
-</li>
-<li>
-<p>颁发机构（Certificate Authority）：CA1、CA2、CA3、CA4</p>
-</li>
-</ul>
-<h2 id="heading-3">创建网络</h2>
+
+<h2 id="创建网络">创建网络</h2>
+
 <p>让我们从创建网络的基础开始 ：</p>
-<p><img src="/images/2019-12-03T17-img-1.png" alt="基础网络图"></p>
+
+<p><img src="/images/2019-12-03T17-img-1.png" alt="基础网络图" /></p>
+
 <p><em>启动排序者后便形成了网络。在我们的示例网络N中，由单个节点 O4 组成的排序服务根据网络配置 NC4 配置，NC4 授予 R4 管理权限。在网络层面，CA4 用于将身份分配给 R4 的管理员和网络节点。</em></p>
+
 <p>我们可以看到，<strong>排序服务 O4</strong> 首先定义了<strong>网络 N</strong>。将排序服务作为网络的最初管理节点很有用。按照事先约定，O4 最初由组织 R4 中的管理员配置和启动，并托管于 R4 中。配置 NC4 包含描述网络管理能力的最初集合的策略。最初，它设置只通过网络给 R4 权限。这将改变，正如我们后面将看到的，但是现在 R4 是网络的唯一成员。</p>
-<h3 id="ca">证书颁发机构（CA）</h3>
+
+<h3 id="证书颁发机构-ca">证书颁发机构（CA）</h3>
+
 <p>您还可以看到证书颁发机构 CA4，它用于向管理员和网络节点颁发证书。由于 CA4 分发 X.509 证书，所以它在我们的网络中有很重要的作用，该证书可以用来标示组件属于组织 R4。通过 CA 颁发的证书还可以用来签名交易，以表明组织认可交易结果——这是在账本上接受交易的先决条件。让我们更详细地研究 CA 的这两方面。</p>
+
 <p>首先，区块链网络的不同组件使用证书将自己标识为来自特定的组织。不同的组织通常使用不同的 CA。 Hyperledger Fabric 为您提供了一个内置的 CA（称为 <em>Fabric-CA</em> ）。但在实践中，组织将选择使用自己的 CA。</p>
+
 <p>证书到成员组织的映射是通过称为 <a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html#membership-services">Membership Services Provider (MSP)</a> 的结构实现的。</p>
+
 <p>其次，稍后我们将看到CA颁发的证书如何成为<a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html#transaction">交易</a>生成和验证过程的核心。具体而言，X.509 证书用于客户端应用程序<a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html#proposal">交易预案</a>和智能合约<a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html#response">交易响应</a>中以进行数字签名<a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html#transaction">交易</a>。随后，托管账本副本的网络节点在接受交易到账本之前会验证交易签名是否有效。</p>
+
 <p>让我们回顾一下示例区块链网络的基本结构。网络 N 中的资源由证书颁发机构 CA4 定义的一组用户访问，这些用户对网络 N 中的资源具有一组权限，如网络配置 NC4 中包含的策略所述。当我们配置并启动订购服务节点 O4 时，所有这些都变为现实。</p>
-<hr>
-<h1 id="heading-4">参考</h1>
+
+<hr />
+
+<h1 id="参考">参考</h1>
+
 <p><a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html">https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html</a></p>
 
     </div>

@@ -24,7 +24,7 @@
   
   
   <meta name="description" content="peer 和账本 现在，让我们使用通道把区块链网络和组织连接起来。在网络开发的下一阶段，我们可以看到网络 N 获得了两个新组件，即 peer 节点 P1 和账本实例 L1。" />
-  <meta name="generator" content="Hugo 0.61.0-DEV with theme pure" />
+  <meta name="generator" content="Hugo 0.58.2 with theme pure" />
   <title>Hyperledger Fabric 1.4 官方文档翻译之三：Key Concepts - Blockchain network (3) - Pure theme for Hugo</title>
   
 
@@ -39,13 +39,16 @@
 <meta property="article:modified_time" content="2019-12-07T09:31:50+08:00" />
 <meta itemprop="name" content="Hyperledger Fabric 1.4 官方文档翻译之三：Key Concepts - Blockchain network (3)">
 <meta itemprop="description" content="peer 和账本 现在，让我们使用通道把区块链网络和组织连接起来。在网络开发的下一阶段，我们可以看到网络 N 获得了两个新组件，即 peer 节点 P1 和账本实例 L1。">
+
+
 <meta itemprop="datePublished" content="2019-12-07T09:31:50&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-07T09:31:50&#43;08:00" />
 <meta itemprop="wordCount" content="1890">
 
 
 
-<meta itemprop="keywords" content="Hyperledger,Fabric,翻译," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Hyperledger,Fabric,翻译," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hyperledger Fabric 1.4 官方文档翻译之三：Key Concepts - Blockchain network (3)"/>
 <meta name="twitter:description" content="peer 和账本 现在，让我们使用通道把区块链网络和组织连接起来。在网络开发的下一阶段，我们可以看到网络 N 获得了两个新组件，即 peer 节点 P1 和账本实例 L1。"/>
 
@@ -307,36 +310,68 @@
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <h2 id="peer-">peer 和账本</h2>
+      
+
+<h2 id="peer-和账本">peer 和账本</h2>
+
 <p>现在，让我们使用通道把区块链网络和组织连接起来。在网络开发的下一阶段，我们可以看到网络 N 获得了两个新组件，即 peer 节点 P1 和账本实例 L1。</p>
-<p><img src="/images/2019-12-07T09-img-0.png" alt="网络对等账本"></p>
+
+<p><img src="/images/2019-12-07T09-img-0.png" alt="网络对等账本" /></p>
+
 <p><em>Peer 节点 P1 已加入通道 C1，P1 物理上托管账本 L1 的副本。P1 和 O4 可以使用 C1 相互通信。</em></p>
+
 <p>peer 节点是托管区块链账本副本的网络组件！最后，我们开始看到一些可识别的区块链组件！P1 在网络中的目的纯粹是托管账本 L1 的副本，以供其他人访问。我们可以认为 L1 <strong>物理上托管</strong>在 P1 上，但<strong>逻辑上托管</strong>在通道 C1 上。当我们向通道添加更多 peer 时，我们会更清楚地看到这个想法。</p>
+
 <p>P1 配置的关键部分是 CA1 发出的 X.509 身份，该身份将 P1 与组织 R1 相联。P1 一旦启动，它就可以使用排序者 O4 加入 C1。当 O4 收到加入申请时，将使用 CC1 来确定 P1 在此通道上的权限。例如，CC1 决定 P1 是否可以在 L1 上进行读写操作。</p>
+
 <p>注意，peer 如何被拥有它们的组织加入到通道中，以及虽然我们只添加了一个 peer，但是将看到网络中的多个通道上可以有多个 peer 节点。我们马上将看到 peer 可以扮演不同角色。</p>
-<h2 id="heading">应用程序和智能合约链码</h2>
+
+<h2 id="应用程序和智能合约链码">应用程序和智能合约链码</h2>
+
 <p>现在，通道 C1 上有一份账本，我们可以开始连接客户端应用程序，来使用由账本、peer 提供的一些服务！</p>
+
 <p>注意，网络是如何成长的：</p>
-<p><img src="/images/2019-12-07T09-img-1.png" alt="应用程序和智能合约"></p>
+
+<p><img src="/images/2019-12-07T09-img-1.png" alt="应用程序和智能合约" /></p>
+
 <p><em>智能合约 S5 已安装到 P1 上。组织 R1 中的客户端应用程序 A1 可以使用 S5 通过 peer 节点 P1 访问账本。A1，P1 和 O4 都已加入通道 C1，即它们都可以利用该通道提供的通信设施。</em></p>
+
 <p>在网络开发的下一个阶段，我们可以看到客户端应用程序 A1 可以使用通道 C1 连接到特殊的网络资源——在这个例子中，A1 可以连接 peer 节点 P1 和排序节点 O4。再次看到通道对网络和组织组件之间通信非常重要。就像 peer 和排序者，客户端应用程序将拥有与组织关联的身份。在我们的示例中，客户端应用程序 A1 与组织 R1 关联；虽然它在 Fabric 区块链网络之外，但仍通过通道 C1 连接到它。</p>
+
 <p>现在，看起来 A1 可以直接通过 P1 访问账本 L1，但实际上，所有访问都是通过称为智能合约链码 S5 的特殊程序进行管理的。S5 定义了所有对账本的常见访问模式；S5 提供了一套明确定义的方式，可以查询或更新账本 L1。简而言之，客户端应用程序 A1 必须通过智能合约 S5 才能到达账本 L1！</p>
+
 <p>智能合约可以由每个组织中的应用程序开发人员创建，以实现联盟成员共享业务流程。智能合约用于帮助生成交易，这些交易将被有序地分发到网络中的每个节点。 智能合约必须被<strong>安装</strong>并<strong>实例化</strong>。</p>
-<h3 id="heading-1">安装智能合约</h3>
+
+<h3 id="安装智能合约">安装智能合约</h3>
+
 <p>智能合约 S5 开发完成后，组织 R1 中的管理员必须将其<a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html#install">安装</a>到 peer 节点 P1 上。这是一个简单的操作；执行后，P1 完全了解 S5。具体来说，P1 可以看到 S5 的<strong>实现</strong>逻辑——用于访问账本 L1 的程序代码。我们将其与只描述输入和输出，不考虑其实现的 S5 <strong>接口</strong>进行对比，</p>
+
 <p>当组织在一个通道中有多个 peer 时，它可以选择 peer 进行智能合约的安装。它不需要在每个 peer 上安装智能合约。</p>
-<h3 id="heading-2">实例化智能合约</h3>
+
+<h3 id="实例化智能合约">实例化智能合约</h3>
+
 <p>但是，仅仅因为 P1 已经安装了 S5，连接到通道 C1 的其他组件却没有意识到；它必须首先在通道 C1 上<a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html#instantiate">实例化</a>。在我们的示例中，它只有一个 peer 节点 P1，组织 R1 中的管理员必须使用 P1 在通道 C1 上实例化 S5。实例化之后，通道 C1 上的每个组件都知道 S5 的存在。在我们的示例中，这意味着 S5 现在可以由客户端应用程序 A1 <a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html#invoke">调用</a>！</p>
+
 <p>请注意，尽管通道上的每个组件现在都可以访问 S5，但它们无法看到其程序逻辑。这对于已安装它的那些节点仍然是私有的。在我们的示例中，这些节点就是 P1。从概念上讲，这意味着实例化的是智能合约<strong>接口</strong>，而不是安装的智能合约<strong>实现</strong>。加深理解，安装智能合约显示了我们如何将其<strong>物理托管</strong>在 peer 上，而实例化智能合约则显示了我们如何将其视为<strong>逻辑上</strong>由通道<strong>托管</strong>。</p>
-<h3 id="heading-3">背书策略</h3>
+
+<h3 id="背书策略">背书策略</h3>
+
 <p>实例化提供的最重要的附加信息是<a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html#endorsement-policy">背书策略</a>。它描述了哪些组织必须在其它组织在其账本副本上接受交易前批准交易。在我们的示例网络中，交易只有被 R1 或 R2 认可后，才可以在账本 L1 上被接受。</p>
+
 <p>实例化的操作把背书策略放在通道配置 CC1 中。通道的任何成员都可以访问它。您可以在<a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html">事务流主题</a>中阅读有关背书策略的更多信息 。</p>
-<h3 id="heading-4">调用智能合约</h3>
+
+<h3 id="调用智能合约">调用智能合约</h3>
+
 <p>智能合约安装在 peer 节点上并在通道上实例化后，即可被客户端应用程序<a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html#invoke">调用</a>。客户端应用程序通过向智能合约背书策略指定的组织所拥有的 peer 发送交易预案来完成此任务。交易预案作为智能合约的输入，智能合约使用它来生成背书交易应答，该应答由 peer 节点返回给客户端应用程序。</p>
+
 <p>这些交易应答跟交易预案打包在一起，形成了一个完全的背书交易，它可以分布在整个网络。稍后我们将更详细地介绍这一点。现在，这已足够理解应用程序是如何调用智能合约生成背书交易的了。</p>
+
 <p>在网络开发的这个阶段，我们可以看到组织 R1 完全参与网络。它的应用程序——从 A1 开始——可以通过智能合约 S5 访问账本 L1，来生成会被 R1 背书的交易。由于它们遵守背书策略，所以能够被接受到账本。</p>
-<hr>
-<h1 id="heading-5">参考</h1>
+
+<hr />
+
+<h1 id="参考">参考</h1>
+
 <p><a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#peers-and-ledgers">https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#peers-and-ledgers</a></p>
 
     </div>

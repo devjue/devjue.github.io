@@ -24,7 +24,7 @@
   
   
   <meta name="description" content="添加网络管理员 最初，NC4 被配置为仅允许 R4 的用户拥有网络管理权限。下一阶段，我们将允许组织 R1 的用户管理网络。让我们看看网络如何演进： 组织 R4 更" />
-  <meta name="generator" content="Hugo 0.61.0-DEV with theme pure" />
+  <meta name="generator" content="Hugo 0.58.2 with theme pure" />
   <title>Hyperledger Fabric 1.4 官方文档翻译之二：Key Concepts - Blockchain network (2) - Pure theme for Hugo</title>
   
 
@@ -39,13 +39,16 @@
 <meta property="article:modified_time" content="2019-12-06T16:03:30+08:00" />
 <meta itemprop="name" content="Hyperledger Fabric 1.4 官方文档翻译之二：Key Concepts - Blockchain network (2)">
 <meta itemprop="description" content="添加网络管理员 最初，NC4 被配置为仅允许 R4 的用户拥有网络管理权限。下一阶段，我们将允许组织 R1 的用户管理网络。让我们看看网络如何演进： 组织 R4 更">
+
+
 <meta itemprop="datePublished" content="2019-12-06T16:03:30&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-06T16:03:30&#43;08:00" />
 <meta itemprop="wordCount" content="2042">
 
 
 
-<meta itemprop="keywords" content="Hyperledger,Fabric,翻译," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Hyperledger,Fabric,翻译," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hyperledger Fabric 1.4 官方文档翻译之二：Key Concepts - Blockchain network (2)"/>
 <meta name="twitter:description" content="添加网络管理员 最初，NC4 被配置为仅允许 R4 的用户拥有网络管理权限。下一阶段，我们将允许组织 R1 的用户管理网络。让我们看看网络如何演进： 组织 R4 更"/>
 
@@ -307,36 +310,68 @@
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <h2 id="heading">添加网络管理员</h2>
+      
+
+<h2 id="添加网络管理员">添加网络管理员</h2>
+
 <p>最初，NC4 被配置为仅允许 R4 的用户拥有网络管理权限。下一阶段，我们将允许组织 R1 的用户管理网络。让我们看看网络如何演进：</p>
-<p><img src="/images/2019-12-06T16-img-0.png" alt="网络管理员"></p>
+
+<p><img src="/images/2019-12-06T16-img-0.png" alt="网络管理员" /></p>
+
 <p><em>组织 R4 更新网络配置，使组织 R1 也成为管理员。此后，R1 和 R4 在网络配置上享有同等的权利。</em></p>
+
 <p>我们看到添加了一个新的组织 R1 作为管理员——R1 和 R4 现在对网络享有同等权利。我们还可以看到证书颁发机构 CA1 已被添加——它可以用于标示用户来自 R1 组织。此后，来自 R1 和 R4 的用户都可以管理网络。</p>
+
 <p>虽然排序节点 O4 运行在 R4 的基础设施上，但是只要 R1 获得了网络访问权限，就对其具有共享管理权限。这意味着，R1 或 R4可以更新网络配置 NC4 来允许 R2 组织拥有网络操作的子集。这样，即使 R4 正在运行排序服务，并且R1 对其拥有完全的管理权限，R2 仍对创建新联盟拥有有限权限。</p>
+
 <p>最简单的形式，排序服务在网络中是单点，这就是您在示例中看到的。排序服务通常是多节点的，并且可以被配置为在不同组织的不同节点中。例如，我们可以在 R4 中运行 O4，同时将其连接到组织 R1 中的独立排序节点 O2。这样，我们将拥有一个多站点、多组织的管理结构。</p>
+
 <p><a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#the-ordering-service">在本篇文章的稍后部分</a>，我们将多讨论一点排序服务，但现在只将排序服务当作管理重点，它给不同的组织提供网络的受控访问权限。</p>
-<h2 id="heading-1">定义联盟</h2>
+
+<h2 id="定义联盟">定义联盟</h2>
+
 <p>虽然现在网络可以由 R1 和 R4管理，但几乎没有什么可以做的。我们需要做的第一件事是定义一个联盟。这个词的字面意思是“拥有共同命运的团体”，所以对于区块链网络中的一组组织来说是一个适当的选择。</p>
+
 <p>让我们看看如何定义一个联盟：</p>
-<p><img src="/images/2019-12-06T16-img-1.png" alt="网络联盟"></p>
+
+<p><img src="/images/2019-12-06T16-img-1.png" alt="网络联盟" /></p>
+
 <p><em>网络管理员定义了一个联盟 X1，包含 R1 和 R2 两个组织成员。该联盟定义存储在网络配置 NC4 中。CA1 和 CA2 是这些组织各自的证书颁发机构。</em></p>
+
 <p>由于 NC4 的配置方式，只有 R1 和 R4 可以创建新的联盟。这张图展示了新联盟 X1 的加入，该联盟将 R1 和 R2 定义为它的组成组织。我们还可以看到 CA2 被添加，用来标示来自 R2 的用户。注意，一个联盟可以有任意数量的组织成员——我们刚刚展示了两个，因为它是最简单的配置。</p>
+
 <p>为什么联盟重要？我们可以看到，一个联盟定义了网络中彼此共享<strong>交易</strong>需求的组织集合——在这个例子中是 R1 和 R2。如果组织有共同的目标，将它们组合在一起会很有意义，而这确实正在发生。</p>
+
 <p>网络虽然由一个单独的组织启动，但现在由更大的一组组织所控制。我们可以以这种方式启动网络，让 R1、R2 和 R4 共享控制权，但是这让其更容易理解。</p>
+
 <p>现在，我们将使用联盟 X1 创建 Hyperledger Fabric 区块链中非常重要的一部分——<strong>通道</strong>。</p>
-<h2 id="heading-2">为联盟创建通道</h2>
+
+<h2 id="为联盟创建通道">为联盟创建通道</h2>
+
 <p>让我们创建 Hyperledger Fabric 区块链中的关键部分——<strong>通道</strong>。通道是主要的通信机制，联盟的成员可以通过该机制相互通信。网络中可以有多个通道，但现在我们将从一个开始。</p>
+
 <p>让我们看看第一个通道是如何被加入网络的：</p>
-<p><img src="/images/2019-12-06T16-img-2.png" alt="网络通道"></p>
+
+<p><img src="/images/2019-12-06T16-img-2.png" alt="网络通道" /></p>
+
 <p><em>使用联盟定义 X1 为 R1 和 R2 创建了通道 C1。通道由完全独立于网络配置的通道配置 CC1 控制，CC1 由对 C1 拥有同等权利的 R1 和 R2 管理。R4 在 CC1 中没有任何权利。</em></p>
+
 <p>通道 C1 为联盟 X1 提供了专用的通信机制。我们可以看到通道 C1 已连接到排序服务 O4 ，但是没有附加任何内容。在网络开发的下一阶段，我们将连接组件，例如客户端应用程序和 peer 节点。但是在这一点上，通道代表着未来连接的<strong>潜力</strong>。</p>
+
 <p>即使通道 C1 是网络 N 的一部分，也可以从中分区出来。还要注意，组织 R3 和 R4 不在这个通道里——它只为 R1 和 R2 之间的交易处理。在上一步中，我们看到 R4 如何授权 R1 创建新联盟的权限。值得一提的是 R4 还允许 R1 创建通道！在这张图中，可能是组织 R1 或 R4 创建了通道 C1。同样，请注意，一个通道可以拥有任意数量的组织——我们刚刚展示了两个，因为它是最简单的配置。</p>
+
 <p>再次注意，通道 C1 有相较于网络配置 NC4 完全独立的配置 CC1。CC1 包含通道 C1 上 R1 和 R2 管理权限的策略（正如我们看到的），R3 和 R4 在这个通道上没有权限。如果 R3 和 R4 被 R1 或 R2 添加到通道配置 CC1 中的适当策略，则 R3 和 R4 只能与 C1 交互。这是一个定义谁可以把一个新组织加入到通道中的示例。特别注意，R4 不能把自己加入到通道 C1 中——它只能由 R1 或 R2 授权。</p>
+
 <p>为什么通道如此重要？通道有用是因为它们为联盟成员间的私有通讯和私有数据提供了一种机制。通道提供网络和其它通道的隐私性。Hyperledger Fabric 在这方面非常强大，因为它允许组织共享基础设施并同时保持其私有状态。这里没有矛盾——网络中不同的联盟将需要适当共享不同的信息和处理过程，通道提供一种有效的机制来做到这一点。通道可有效共享基础架构，同时保持数据和通信的隐私。</p>
+
 <p>我们还可以看到，一旦创建了一个通道，它实际上就是“脱离网络”。从此时到未来，只有在通道配置中明确指定的组织才能对其进行控制。同样，从此时开始对网络配置 NC4 的任何更新都不会直接影响通道配置 CC1；例如，如果联盟定义 X1 更新，它将不会影响通道 C1 的成员。通道之所以有用，是因为它们允许构成通道的组织之间进行隐私通信。此外，通道中的数据与网络的其余部分（包括其他通道）完全隔离。</p>
+
 <p>顺便说一句，还有一个特殊的<strong>系统通道</strong>，供排序服务使用。它的行为与常规通道完全相同，因此有时会称为<strong>应用程序通道</strong>。 我们通常不需要担心这个通道，但我们将在<a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#the-ordering-service">本篇文章的稍后部分</a>对此讨论更多。</p>
-<hr>
-<h1 id="heading-3">参考</h1>
+
+<hr />
+
+<h1 id="参考">参考</h1>
+
 <p><a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#adding-network-administrators">https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#adding-network-administrators</a></p>
 
     </div>

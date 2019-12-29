@@ -24,7 +24,7 @@
   
   
   <meta name="description" content="网络完全形成 让我们使用一致的视觉词汇来回顾一下我们的网络。我们已经使用更紧凑的视觉语法对其进行稍微的重组，因为它可以更好地适应更大的拓扑： 在" />
-  <meta name="generator" content="Hugo 0.61.0-DEV with theme pure" />
+  <meta name="generator" content="Hugo 0.58.2 with theme pure" />
   <title>Hyperledger Fabric 1.4 官方文档翻译之七：Key Concepts - Blockchain network (7) - Pure theme for Hugo</title>
   
 
@@ -39,13 +39,16 @@
 <meta property="article:modified_time" content="2019-12-18T16:53:18+08:00" />
 <meta itemprop="name" content="Hyperledger Fabric 1.4 官方文档翻译之七：Key Concepts - Blockchain network (7)">
 <meta itemprop="description" content="网络完全形成 让我们使用一致的视觉词汇来回顾一下我们的网络。我们已经使用更紧凑的视觉语法对其进行稍微的重组，因为它可以更好地适应更大的拓扑： 在">
+
+
 <meta itemprop="datePublished" content="2019-12-18T16:53:18&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-18T16:53:18&#43;08:00" />
 <meta itemprop="wordCount" content="676">
 
 
 
-<meta itemprop="keywords" content="Hyperledger,Fabric,翻译," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Hyperledger,Fabric,翻译," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hyperledger Fabric 1.4 官方文档翻译之七：Key Concepts - Blockchain network (7)"/>
 <meta name="twitter:description" content="网络完全形成 让我们使用一致的视觉词汇来回顾一下我们的网络。我们已经使用更紧凑的视觉语法对其进行稍微的重组，因为它可以更好地适应更大的拓扑： 在"/>
 
@@ -307,13 +310,22 @@
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <h2 id="heading">网络完全形成</h2>
+      
+
+<h2 id="网络完全形成">网络完全形成</h2>
+
 <p>让我们使用一致的视觉词汇来回顾一下我们的网络。我们已经使用更紧凑的视觉语法对其进行稍微的重组，因为它可以更好地适应更大的拓扑：</p>
-<p><img src="/images/2019-12-18T16-img-0.png" alt="最终网络"></p>
+
+<p><img src="/images/2019-12-18T16-img-0.png" alt="最终网络" /></p>
+
 <p><em>在这张图中，我们看到 Fabric 区块链网络由两个应用程序通道和一个排序服务通道组成。组织 R1 和 R4 负责排序服务通道，R1 和 R2 负责蓝色应用程序通道，而 R2 和 R3 负责红色应用程序通道。客户端应用程序 A1 是组织 R1 的一个元素，CA1 是它的证书颁发机构。注意，组织 R2 的  peer P2 可以使用蓝色和红色应用程序通道的通信设施。每一个应用程序通道都有自己的通道配置，在这个例子中是 CC1 和 CC2。系统通道的通道配置是网络配置 NC4 的一部分。</em></p>
+
 <p>我们在构建示例 Hyperledger Fabric 区块链网络概念之旅结束时。我们已经创建了一个具有四个组织、两个通道、三个 peer 节点、两个智能合约和一个排序服务的网络。它由四个证书颁发机构支持。它为三个客户端应用程序提供账本和智能合约服务，我们可以通过两个通道与其进行交互。花一点时间浏览一下图中网络的细节，并随意回看此主题以增强您的知识，或者转到更详细的主题。</p>
-<h3 id="heading-1">网络组件摘要</h3>
+
+<h3 id="网络组件摘要">网络组件摘要</h3>
+
 <p>这是我们讨论过的网络组件的概要：</p>
+
 <ul>
 <li><a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html#ledger">Ledger</a>. 每个通道都有一个。包括 <a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html#block">Blockchain</a> 和 <a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html#world-state">World state</a> 。</li>
 <li><a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html#smart-contract">Smart contract</a> (aka chaincode)</li>
@@ -322,10 +334,15 @@
 <li><a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html#channel">Channel</a></li>
 <li><a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html#hyperledger-fabric-ca">Certificate Authority</a></li>
 </ul>
-<h2 id="heading-2">网络总结</h2>
+
+<h2 id="网络总结">网络总结</h2>
+
 <p>在本主题中，我们已经看到不同组件如何共享其基础设施，以提供一个完整的 Hyperledger Fabric 区块链网络。我们已经看到共有的基础设施如何组成通道，以提供独立管理的私密通信机制。我们已经看到像客户端应用程序、管理员、peer 和排序者这些参与者，如何使用来自它们各自证书颁发机构的证书来识别其来自不同的组织。反过来，我们已经看到，定义协商一致权限的策略的重要性，这些权限是在网络和通道资源上组织的参与者所拥有的。</p>
-<hr>
-<h1 id="heading-3">参考</h1>
+
+<hr />
+
+<h1 id="参考">参考</h1>
+
 <p><a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#network-fully-formed">https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html#network-fully-formed</a></p>
 
     </div>

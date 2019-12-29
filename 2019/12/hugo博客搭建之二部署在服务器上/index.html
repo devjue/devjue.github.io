@@ -24,7 +24,7 @@
   
   
   <meta name="description" content="上一篇介绍了 Hugo 的安装，以及如何在 GitHub Page 上进行部署。这一篇将介绍如何在独立的服务器上部署站点。 在服务器上部署站点，可以最大程度地自由发挥。首先，" />
-  <meta name="generator" content="Hugo 0.61.0-DEV with theme pure" />
+  <meta name="generator" content="Hugo 0.58.2 with theme pure" />
   <title>Hugo 博客搭建之二：部署在服务器上 - Pure theme for Hugo</title>
   
 
@@ -39,13 +39,16 @@
 <meta property="article:modified_time" content="2019-12-06T09:01:30+07:00" />
 <meta itemprop="name" content="Hugo 博客搭建之二：部署在服务器上">
 <meta itemprop="description" content="上一篇介绍了 Hugo 的安装，以及如何在 GitHub Page 上进行部署。这一篇将介绍如何在独立的服务器上部署站点。 在服务器上部署站点，可以最大程度地自由发挥。首先，">
+
+
 <meta itemprop="datePublished" content="2019-12-06T09:01:30&#43;07:00" />
 <meta itemprop="dateModified" content="2019-12-06T09:01:30&#43;07:00" />
 <meta itemprop="wordCount" content="951">
 
 
 
-<meta itemprop="keywords" content="hugo,nginx," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="hugo,nginx," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hugo 博客搭建之二：部署在服务器上"/>
 <meta name="twitter:description" content="上一篇介绍了 Hugo 的安装，以及如何在 GitHub Page 上进行部署。这一篇将介绍如何在独立的服务器上部署站点。 在服务器上部署站点，可以最大程度地自由发挥。首先，"/>
 
@@ -306,67 +309,111 @@
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <p><a href="/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%B8%80%E9%83%A8%E7%BD%B2%E5%9C%A8github-page%E4%B8%8A/">上一篇</a>介绍了 Hugo 的安装，以及如何在 <code>GitHub Page</code> 上进行部署。这一篇将介绍如何在独立的服务器上部署站点。</p>
+      
+
+<p><a href="/2019/12/hugo博客搭建之一部署在github-page上/">上一篇</a>介绍了 Hugo 的安装，以及如何在 <code>GitHub Page</code> 上进行部署。这一篇将介绍如何在独立的服务器上部署站点。</p>
+
 <p>在服务器上部署站点，可以最大程度地自由发挥。首先，需要一台服务器，博客不需要太高的配置，入门级云服务器即可。然后，需要一个域名，这是您江湖上行走的ID，自己喜欢就好，不推荐暂时不能备案的（如 .org、.name 等）。此外，还需要 DNS 解析服务，有的域名商会在卖域名时附赠这项服务。总结一下，需要：</p>
+
 <ul>
 <li>云服务器</li>
 <li>域名</li>
 <li>DNS 服务</li>
 </ul>
+
 <p>Hugo 生成的是静态站点，推荐使用 nginx 作为博客的 web 服务器。</p>
+
 <p>下面，就开始部署吧。</p>
-<h1 id="heading">查看系统信息</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat /etc/redhat-release
-CentOS Linux release 7.5.1804 <span style="color:#f92672">(</span>Core<span style="color:#f92672">)</span>
+
+<h1 id="查看系统信息">查看系统信息</h1>
+
+<pre><code class="language-bash">$ cat /etc/redhat-release
+CentOS Linux release 7.5.1804 (Core)
 $ uname -r
 3.10.0-862.el7.x86_64
-</code></pre></div><h1 id="-nginx">安装 nginx</h1>
-<h2 id="heading-1">安装依赖</h2>
+</code></pre>
+
+<h1 id="安装-nginx">安装 nginx</h1>
+
+<h2 id="安装依赖">安装依赖</h2>
+
 <p>gcc-c++ 是 nginx 源码编译需要的 gcc 环境。</p>
+
 <p>pcre、pcre-devel、zlib、zlib-devel、openssl、openssl-devel 是 nginx 源码编译依赖的库。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yum -y install gcc-c++ pcre pcre-devel zlib zlib-devel openssl openssl-devel
-</code></pre></div><h2 id="-nginx-">创建 nginx 用户</h2>
+
+<pre><code class="language-bash">yum -y install gcc-c++ pcre pcre-devel zlib zlib-devel openssl openssl-devel
+</code></pre>
+
+<h2 id="创建-nginx-用户">创建 nginx 用户</h2>
+
 <p>给 nginx 服务分配单独的用户进行操作，以隔离风险。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">useradd nginx
+
+<pre><code class="language-bash">useradd nginx
 su nginx
-</code></pre></div><h2 id="-nginx-1">安装 nginx</h2>
+</code></pre>
+
+<h2 id="安装-nginx-1">安装 nginx</h2>
+
 <p>下载最新版本的 <a href="https://nginx.org/en/download.html">nginx 源码</a>。配置 <code>configure</code> 参数，把 nginx 安装在 <code>nginx</code> 的用户目录 <code>opt/</code> 下，并设置 <code>worker 进程</code> 的默认用户为 <code>nginx</code> 。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir $HOME/download $HOME/opt
+
+<pre><code class="language-bash">mkdir $HOME/download $HOME/opt
 cd ~/download
 wget https://nginx.org/download/nginx-1.16.1.tar.gz
 tar zxf nginx-1.16.1.tar.gz
 cd nginx-1.16.1
-./configure --prefix<span style="color:#f92672">=</span>/home/nginx/opt/nginx --user<span style="color:#f92672">=</span>nginx
+./configure --prefix=/home/nginx/opt/nginx --user=nginx
 make &amp; make install
-</code></pre></div><h2 id="heading-2">配置环境变量</h2>
+</code></pre>
+
+<h2 id="配置环境变量">配置环境变量</h2>
+
 <p>为 <code>nginx</code> 设置用户的环境变量。首先，在用户根目录下创建 <code>bin/</code> 目录，用于存放所有应用程序的软链接。再将 <code>bin/</code> 目录加入 <code>PATH</code>，并立即生效。最后，在 <code>bin/</code> 目录下创建 <code>nginx</code> 的软链接。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir $HOME/bin
-echo -e <span style="color:#e6db74">&#39;\nPATH=/home/nginx/bin:$PATH\n&#39;</span> &gt;&gt; /home/nginx/.bash_profile
+
+<pre><code class="language-bash">mkdir $HOME/bin
+echo -e '\nPATH=/home/nginx/bin:$PATH\n' &gt;&gt; /home/nginx/.bash_profile
 source /home/nginx/.bash_profile
 ln -s /home/nginx/opt/nginx/sbin/nginx /home/nginx/bin
-</code></pre></div><h1 id="-nginx-2">启动 nginx</h1>
+</code></pre>
+
+<h1 id="启动-nginx">启动 nginx</h1>
+
 <p>非超级用户不能监听1024以下的端口。所以，需要让 <code>nginx</code> 监听 <code>8080 端口</code>，再让 <code>firewall</code> 将 <code>80 端口</code> 的流量转发至 <code>8080 端口</code>。</p>
-<h2 id="-nginx--1">编辑 nginx 配置文件</h2>
+
+<h2 id="编辑-nginx-配置文件">编辑 nginx 配置文件</h2>
+
 <pre><code>...
 server {
         listen       8080; # 把80改为8080
         ...
 }
 ...
-</code></pre><h2 id="heading-3">设置端口转发</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 使用 root 用户操作，需要 root 权限</span>
+</code></pre>
+
+<h2 id="设置端口转发">设置端口转发</h2>
+
+<pre><code class="language-bash"># 使用 root 用户操作，需要 root 权限
 su root
 systemctl start firewalld.service
-firewall-cmd --add-forward-port<span style="color:#f92672">=</span>port<span style="color:#f92672">=</span>80:proto<span style="color:#f92672">=</span>tcp:toport<span style="color:#f92672">=</span><span style="color:#ae81ff">8080</span> --permanent
+firewall-cmd --add-forward-port=port=80:proto=tcp:toport=8080 --permanent
 firewall-cmd --reload
-</code></pre></div><h2 id="-nginx-3">启动 nginx</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">su nginx
+</code></pre>
+
+<h2 id="启动-nginx-1">启动 nginx</h2>
+
+<pre><code class="language-bash">su nginx
 nginx
-</code></pre></div><p>此时，浏览器打开，就能够看到 nginx 的欢迎页了。</p>
-<h2 id="heading-4">上传静态站点</h2>
-<p>将由 Hugo 生成的站点上传至服务器，推荐在 <code>nginx</code> 用户的根目录下，这样比较方便。关于如何使用 Hugo 生成静态站点，请查看<a href="/2019/12/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E4%B8%80%E9%83%A8%E7%BD%B2%E5%9C%A8github-page%E4%B8%8A/">上一篇</a>。</p>
-<h2 id="heading-5">配置站点</h2>
+</code></pre>
+
+<p>此时，浏览器打开，就能够看到 nginx 的欢迎页了。</p>
+
+<h2 id="上传静态站点">上传静态站点</h2>
+
+<p>将由 Hugo 生成的站点上传至服务器，推荐在 <code>nginx</code> 用户的根目录下，这样比较方便。关于如何使用 Hugo 生成静态站点，请查看<a href="/2019/12/hugo博客搭建之一部署在github-page上/">上一篇</a>。</p>
+
+<h2 id="配置站点">配置站点</h2>
+
 <p>再次编辑 <code>nginx</code> 的配置文件，设置站点域名、路由等。</p>
+
 <pre><code>server {
     listen       8080;
     server_name  domain_name; # 博客域名
@@ -377,23 +424,39 @@ nginx
     }
     ...
 }
-</code></pre><p>重新启动 <code>nginx</code>：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ nginx -s reload
-</code></pre></div><p>此时，浏览器打开 <code>服务器的 IP 地址</code>，就能够看到您的博客首页了。</p>
-<h1 id="dns-">DNS 解析</h1>
+</code></pre>
+
+<p>重新启动 <code>nginx</code>：</p>
+
+<pre><code class="language-bash">$ nginx -s reload
+</code></pre>
+
+<p>此时，浏览器打开 <code>服务器的 IP 地址</code>，就能够看到您的博客首页了。</p>
+
+<h1 id="dns-解析">DNS 解析</h1>
+
 <p>在 DNS 解析服务上，将 <code>域名</code> 指向 <code>服务器的 IP 地址</code>。浏览器打开 <code>域名</code>，就可以看到博客页面了。</p>
-<h1 id="heading-6">网站备案</h1>
+
+<h1 id="网站备案">网站备案</h1>
+
 <p>注意，需要尽快进行网站备案，否则，很快就看不到您的网站了。</p>
-<h1 id="heading-7">软件版本</h1>
+
+<h1 id="软件版本">软件版本</h1>
+
 <p>本文涉及到的软件版本如下：</p>
+
 <ul>
 <li>CentOS Linux release 7.5.1804 (Core)</li>
 <li>nginx 1.16.1</li>
 <li>Hugo 0.60.1</li>
 </ul>
-<hr>
-<h1 id="heading-8">参考</h1>
+
+<hr />
+
+<h1 id="参考">参考</h1>
+
 <p><a href="https://www.cnblogs.com/remyyoung/p/11244840.html">https://www.cnblogs.com/remyyoung/p/11244840.html</a></p>
+
 <p><a href="https://www.cnblogs.com/boonya/p/7907999.html">https://www.cnblogs.com/boonya/p/7907999.html</a></p>
 
     </div>
