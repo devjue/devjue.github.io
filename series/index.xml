@@ -10,6 +10,15 @@
     
     
     <item>
+      <title>Commercial Paper 解析</title>
+      <link>https://devjue.github.io/2019/12/commercial-paper-%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Tue, 31 Dec 2019 23:01:16 +0800</pubDate>
+      
+      <guid>https://devjue.github.io/2019/12/commercial-paper-%E8%A7%A3%E6%9E%90/</guid>
+      <description>Commercial Papers 是 Fabric-Samples v1.4.4 中的重要示例。本文将只关注于 Commercial Paper，更多关于 Hyperledger Fabric 及 Fabric-Samples 的环境安装请查看Hyperledger Fabric 环境安装。另外，此示例支持 Javascript 和 Java</description>
+    </item>
+    
+    <item>
       <title>Hyperledger Fabric 1.4 官方文档翻译之八：Key Concepts - Peers - Peers and Orderers</title>
       <link>https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E5%85%ABkey-concepts-peers-peers-and-orderers/</link>
       <pubDate>Sun, 29 Dec 2019 21:42:54 +0800</pubDate>

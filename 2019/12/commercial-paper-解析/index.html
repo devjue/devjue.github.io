@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Commercial Paper 解析 - Pure theme for Hugo
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Commercial Papers 是 Fabric-Samples v1.4.4 中的重要示例。本文将只关注于 Commercial Paper，更多关于 Hyperledger Fabric 及 Fabric-Samples 的环境安装请查看Hyperledger Fabric 环境安装。另外，此示例支持 Javascript 和 Java" />
+  <meta name="generator" content="Hugo 0.58.2 with theme pure" />
+  <title>Commercial Paper 解析 - Pure theme for Hugo</title>
+  
+
+  <link rel="stylesheet" href="https://devjue.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+  <meta property="og:title" content="Commercial Paper 解析" />
+<meta property="og:description" content="Commercial Papers 是 Fabric-Samples v1.4.4 中的重要示例。本文将只关注于 Commercial Paper，更多关于 Hyperledger Fabric 及 Fabric-Samples 的环境安装请查看Hyperledger Fabric 环境安装。另外，此示例支持 Javascript 和 Java" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://devjue.github.io/2019/12/commercial-paper-%E8%A7%A3%E6%9E%90/" />
+<meta property="article:published_time" content="2019-12-31T23:01:16+08:00" />
+<meta property="article:modified_time" content="2019-12-31T23:01:16+08:00" />
+<meta itemprop="name" content="Commercial Paper 解析">
+<meta itemprop="description" content="Commercial Papers 是 Fabric-Samples v1.4.4 中的重要示例。本文将只关注于 Commercial Paper，更多关于 Hyperledger Fabric 及 Fabric-Samples 的环境安装请查看Hyperledger Fabric 环境安装。另外，此示例支持 Javascript 和 Java">
+
+
+<meta itemprop="datePublished" content="2019-12-31T23:01:16&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-31T23:01:16&#43;08:00" />
+<meta itemprop="wordCount" content="2333">
+
+
+
+<meta itemprop="keywords" content="Hyperledger,Fabric," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Commercial Paper 解析"/>
+<meta name="twitter:description" content="Commercial Papers 是 Fabric-Samples v1.4.4 中的重要示例。本文将只关注于 Commercial Paper，更多关于 Hyperledger Fabric 及 Fabric-Samples 的环境安装请查看Hyperledger Fabric 环境安装。另外，此示例支持 Javascript 和 Java"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center theme-blue" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/devjue" target="_blank">
+            <img class="img-circle img-rotate" src="https://devjue.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">devjue</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">Dev JUE</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Hangzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>have fun</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://devjue.github.io/categories/web/" class="category-list-link">web</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://devjue.github.io/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/" class="category-list-link">区块链</a><span class="category-list-count">11</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://devjue.github.io/tags/byfn.sh/" class="tag-list-link">byfn.sh</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://devjue.github.io/tags/fabric/" class="tag-list-link">fabric</a><span
+                    class="tag-list-count">11</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://devjue.github.io/tags/git/" class="tag-list-link">git</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://devjue.github.io/tags/hugo/" class="tag-list-link">hugo</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://devjue.github.io/tags/hyperledger/" class="tag-list-link">hyperledger</a><span
+                    class="tag-list-count">11</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://devjue.github.io/tags/nginx/" class="tag-list-link">nginx</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://devjue.github.io/tags/%E7%BF%BB%E8%AF%91/" class="tag-list-link">翻译</a><span
+                    class="tag-list-count">8</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://devjue.github.io/2019/12/commercial-paper-%E8%A7%A3%E6%9E%90/" class="title">Commercial Paper 解析</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-31 23:01:16 &#43;0800 CST" itemprop="datePublished">2019-12-31</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E5%85%ABkey-concepts-peers-peers-and-orderers/" class="title">Hyperledger Fabric 1.4 官方文档翻译之八：Key Concepts - Peers - Peers and Orderers</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-29 21:42:54 &#43;0800 CST" itemprop="datePublished">2019-12-29</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://devjue.github.io/2019/12/first-network-byfn.sh-%E8%A7%A3%E6%9E%90/" class="title">First-Network Byfn.sh 解析</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-26 00:24:40 &#43;0800 CST" itemprop="datePublished">2019-12-26</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://devjue.github.io/2019/12/hyperledger-fabric-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" class="title">Hyperledger Fabric 环境安装</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-20 21:22:20 &#43;0800 CST" itemprop="datePublished">2019-12-20</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E4%B8%83key-concepts-blockchain-network-7/" class="title">Hyperledger Fabric 1.4 官方文档翻译之七：Key Concepts - Blockchain network (7)</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-18 16:53:18 &#43;0800 CST" itemprop="datePublished">2019-12-18</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2019/12/commercial-paper-%E8%A7%A3%E6%9E%90/"
+    >Commercial Paper 解析</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://devjue.github.io/2019/12/commercial-paper-%E8%A7%A3%E6%9E%90/" class="article-date">
+  <time datetime="2019-12-31 23:01:16 &#43;0800 CST" itemprop="datePublished">2019-12-31</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"> 区块链 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/hyperledger/"> Hyperledger </a>
+    <a class="article-tag-link" href="/tags/fabric/"> Fabric </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/commercial-paper-%E8%A7%A3%E6%9E%90/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:2333字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:5分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      
+
+<p>Commercial Papers 是 Fabric-Samples v1.4.4 中的重要示例。本文将只关注于 Commercial Paper，更多关于 Hyperledger Fabric 及 Fabric-Samples 的环境安装请查看<a href="/2019/12/hyperledger-fabric-环境安装/">Hyperledger Fabric 环境安装</a>。另外，此示例支持 Javascript 和 Java 两种语言，我们只使用 Javascript 进行解析。</p>
+
+<h1 id="场景">场景</h1>
+
+<p>在 Commercial Papers 示例中，MagnetoCorp 是商业票据的发行商，DigiBank 是认购商业票据的投资银行。Isabella 和 Balaji 分别是这两家公司的员工，他们负责具体执行。</p>
+
+<p><img src="/images/2019-12-31T23-img-0.png" alt="Commercial Papers 场景" /></p>
+
+<h1 id="启动区块链网络">启动区块链网络</h1>
+
+<p>以 <code>网络管理员</code> 身份，打开终端（称之为 <code>终端1</code>），运行 <code>./roles/network-starter.sh</code>。该脚本将启动区块链网络，并监听其所有容器。其实，它是调用 <code>../basic-network</code> 目录下的 <code>teardown.sh</code> 和 <code>start.sh</code> 完成启动的。下面是其逻辑伪代码：</p>
+
+<pre><code>./roles/network-starter.sh
+停止 docker 中的容器 cliDigiBank、cliMagnetoCorp、logspout
+# 调用 ../basic-network/teardown.sh
+  停止 docker 中的其它容器
+  删除所有 dev-* 镜像
+# 调用 ../basic-network/start.sh
+  启动 ca、order、peer、couchdb 四个容器
+  创建名为 mychannel 的通道
+  把 peer0.org1.example.com 加入通道 mychannel
+# 调用 ./organization/magnetocorp/configuration/cli/monitordocker.sh
+  监听该网络上的所有容器，并将日志打印到终端
+</code></pre>
+
+<p>执行该脚本。如果成功启动，会看到如下结果：</p>
+
+<pre><code class="language-bash">$ bash roles/network-starter.sh
+...
+docker ps -a
+CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS                  PORTS                                            NAMES
+92adc82fcb8a        hyperledger/fabric-peer      &quot;peer node start&quot;        1 second ago        Up Less than a second   0.0.0.0:7051-&gt;7051/tcp, 0.0.0.0:7053-&gt;7053/tcp   peer0.org1.example.com
+cfa4d04f20ce        hyperledger/fabric-couchdb   &quot;tini -- /docker-ent…&quot;   2 seconds ago       Up Less than a second   4369/tcp, 9100/tcp, 0.0.0.0:5984-&gt;5984/tcp       couchdb
+adddc8066dae        hyperledger/fabric-ca        &quot;sh -c 'fabric-ca-se…&quot;   2 seconds ago       Up Less than a second   0.0.0.0:7054-&gt;7054/tcp                           ca.example.com
+ca43d55e87eb        hyperledger/fabric-orderer   &quot;orderer&quot;                2 seconds ago       Up Less than a second   0.0.0.0:7050-&gt;7050/tcp                           orderer.example.com
+...
+# -------------------------------------------------------------------------------
+#
+# Good to start the applications in other terminals
+#
+&quot;${DIR}/organization/magnetocorp/configuration/cli/monitordocker.sh&quot; net_basic
+Starting monitoring on all containers on the network net_basic
+...
+peer0.org1.example.com|... [gossip.election] beLeader -&gt; INFO 038 3d61f17d60ad28cbef5193bf66a12717007545d938788b9878df1d091773ee06 : Becoming a leader
+peer0.org1.example.com|... [gossip.service] func1 -&gt; INFO 039 Elected as a leader, starting delivery service for channel mychannel
+peer0.org1.example.com|... [deliveryClient] StartDeliverForChannel -&gt; INFO 03a This peer will retrieve blocks from ordering service and disseminate to other peers in the organization for channel mychannel
+peer0.org1.example.com|... [deliveryClient] RequestBlocks -&gt; INFO 03b Starting deliver with block [1] for channel mychannel
+</code></pre>
+
+<h1 id="安装并实例化智能合约">安装并实例化智能合约</h1>
+
+<p>以 Isabella（MagnetoCorp 的员工）的身份，再打开一个终端（称之为 <code>终端2</code>），运行 <code>./roles/magnetocorp.sh</code>。该脚本将启动 docker 容器 cliMagnetoCorp，并提示您如何安装并实例化智能合约 <code>papercontract</code>。</p>
+
+<pre><code class="language-bash">$ bash roles/magentocorp.sh
+Creating cliMagnetoCorp ... done
+...
+</code></pre>
+
+<h2 id="安装智能合约">安装智能合约</h2>
+
+<pre><code class="language-bash">$ docker exec cliMagnetoCorp peer chaincode install -n papercontract -v 0 -p /opt/gopath/src/github.com/contract -l node
+... [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 001 Using default escc
+... [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 002 Using default vscc
+... [chaincodeCmd] install -&gt; INFO 003 Installed remotely response:&lt;status:200 payload:&quot;OK&quot; &gt;
+</code></pre>
+
+<p>如果安装成功，<code>终端1</code> 也会看到如下日志：</p>
+
+<pre><code>peer0.org1.example.com|... [lscc] executeInstall -&gt; INFO 03e Installed Chaincode [papercontract] Version [0] to peer
+</code></pre>
+
+<h2 id="实例化智能合约">实例化智能合约</h2>
+
+<pre><code class="language-bash">$ docker exec cliMagnetoCorp peer chaincode instantiate -n papercontract -v 0 -l node -c '{&quot;Args&quot;:[&quot;org.papernet.commercialpaper:instantiate&quot;]}' -C mychannel -P &quot;AND ('Org1MSP.member')&quot;
+2019-12-31 11:53:41.570 [chaincodeCmd] InitCmdFactory -&gt; INFO 001 Retrieved channel (mychannel) orderer endpoint: orderer.example.com:7050
+2019-12-31 11:53:41.572 [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 002 Using default escc
+2019-12-31 11:53:41.572 [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 003 Using default vscc
+</code></pre>
+
+<p>如果成功，docker 会启动一个新的 dev-peer0.org1.example.com-papercontract-0 容器。</p>
+
+<h1 id="发行">发行</h1>
+
+<p>继续以 Isabella 的身份，在 <code>终端2</code> 中，进入目录 <code>./organization/magnetocorp/application/</code>。先安装依赖，然后将身份证书加入 magnetocorp 的钱包，并发行商业票据。</p>
+
+<h2 id="安装依赖">安装依赖</h2>
+
+<pre><code class="language-bash">$ cd organization/magnetocorp/application/
+$ npm install
+</code></pre>
+
+<h2 id="将身份证书加入钱包">将身份证书加入钱包</h2>
+
+<pre><code class="language-bash">$ node addToWallet.js
+done
+</code></pre>
+
+<h2 id="发行商业票据">发行商业票据</h2>
+
+<pre><code class="language-bash">$ node issue.js
+Connect to Fabric gateway.
+Use network channel: mychannel.
+Use org.papernet.commercialpaper smart contract.
+Submit commercial paper issue transaction.
+Process issue transaction response.{&quot;class&quot;:&quot;org.papernet.commercialpaper&quot;,&quot;key&quot;:&quot;\&quot;MagnetoCorp\&quot;:\&quot;00001\&quot;&quot;,&quot;currentState&quot;:1,&quot;issuer&quot;:&quot;MagnetoCorp&quot;,&quot;paperNumber&quot;:&quot;00001&quot;,&quot;issueDateTime&quot;:&quot;2020-05-31&quot;,&quot;maturityDateTime&quot;:&quot;2020-11-30&quot;,&quot;faceValue&quot;:&quot;5000000&quot;,&quot;owner&quot;:&quot;MagnetoCorp&quot;}
+MagnetoCorp commercial paper : 00001 successfully issued for value 5000000
+Transaction complete.
+Disconnect from Fabric gateway.
+Issue program complete.
+</code></pre>
+
+<p>如果运行成功，在 <code>终端1</code> 中会看到：</p>
+
+<pre><code>...
+peer0.org1.example.com|... [endorser] callChaincode -&gt; INFO 04b [mychannel][fe9e3531] Entry chaincode: name:&quot;cscc&quot;
+                    peer0.org1.example.com|... [endorser] callChaincode -&gt; INFO 04c [mychannel][fe9e3531] Exit chaincode: name:&quot;cscc&quot;  (8ms)
+                    peer0.org1.example.com|... [comm.grpc.server] 1 -&gt; INFO 04d unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.23.0.1:38040 grpc.code=OK grpc.call_duration=9.010866ms
+                    peer0.org1.example.com|... [endorser] callChaincode -&gt; INFO 04e [mychannel][294763f2] Entry chaincode: name:&quot;papercontract&quot;
+                    peer0.org1.example.com|... [endorser] callChaincode -&gt; INFO 04f [mychannel][294763f2] Exit chaincode: name:&quot;papercontract&quot;  (9ms)
+                    peer0.org1.example.com|... [comm.grpc.server] 1 -&gt; INFO 050 unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.23.0.1:38040 grpc.code=OK grpc.call_duration=9.491494ms
+dev-peer0.org1.example.com-papercontract-0|...Z info [shim:lib/handler.js]                               [mychannel-294763f2] Calling chaincode Invoke() succeeded. Sending COMPLETED message back to peer
+                       orderer.example.com|... [comm.grpc.server] 1 -&gt; INFO 00f streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=172.23.0.1:49944 grpc.code=OK grpc.call_duration=8.056409ms
+                    peer0.org1.example.com|... [gossip.privdata] StoreBlock -&gt; INFO 051 [mychannel] Received block [2] from buffer
+                    peer0.org1.example.com|... [committer.txvalidator] Validate -&gt; INFO 052 [mychannel] Validated block [2] in 0ms
+                                   couchdb|[notice] ... nonode@nohost &lt;0.14905.0&gt; 0a19b37ca8 couchdb:5984 172.23.0.5 undefined POST /mychannel_lscc/_all_docs?include_docs=true 200 ok 1
+                                   couchdb|[notice] ... nonode@nohost &lt;0.14905.0&gt; 6b4c575892 couchdb:5984 172.23.0.5 undefined GET /mychannel_papercontract 404 ok 0
+                                   couchdb|[notice] ... nonode@nohost &lt;0.14905.0&gt; 2d402a123d couchdb:5984 172.23.0.5 undefined PUT /mychannel_papercontract 201 ok 31
+                                   couchdb|[notice] ... nonode@nohost &lt;0.14905.0&gt; e6d95be5bc couchdb:5984 172.23.0.5 undefined POST /mychannel_papercontract/_all_docs?include_docs=true 200 ok 1
+                    peer0.org1.example.com|... [couchdb] CreateDatabaseIfNotExist -&gt; INFO 053 Created state database mychannel_papercontract
+                                   couchdb|[notice] ... nonode@nohost &lt;0.14905.0&gt; 4e511717bd couchdb:5984 172.23.0.5 undefined POST /mychannel_papercontract/_bulk_docs 201 ok 6
+                                   couchdb|[notice] ... nonode@nohost &lt;0.14905.0&gt; 871b91f448 couchdb:5984 172.23.0.5 undefined POST /mychannel_papercontract/_ensure_full_commit 201 ok 0
+                                   couchdb|[notice] ... nonode@nohost &lt;0.14905.0&gt; d734f253ca couchdb:5984 172.23.0.5 undefined GET /mychannel_/statedb_savepoint?attachments=true 200 ok 1
+                                   couchdb|[notice] ... nonode@nohost &lt;0.14905.0&gt; 5951cf8257 couchdb:5984 172.23.0.5 undefined GET /mychannel_papercontract/_index 200 ok 1
+                                   couchdb|[notice] ... nonode@nohost &lt;0.14905.0&gt; 99e486983f couchdb:5984 172.23.0.5 undefined PUT /mychannel_/statedb_savepoint 201 ok 3
+                    peer0.org1.example.com|... [kvledger] CommitWithPvtData -&gt; INFO 054 [mychannel] Committed block [2] with 1 transaction(s) in 70ms (state_validation=3ms block_and_pvtdata_commit=10ms state_commit=48ms) commitHash=[050857e4d2fc3095412fe72d7a6abe580418a09d99daddc053d35b18216c392c]
+                    peer0.org1.example.com|... [comm.grpc.server] 1 -&gt; INFO 055 streaming call completed grpc.service=protos.Deliver grpc.method=Deliver grpc.peer_address=172.23.0.1:38040 error=&quot;context finished before block retrieved: context canceled&quot; grpc.code=Unknown grpc.call_duration=2.097318084s
+...
+</code></pre>
+
+<h1 id="认购">认购</h1>
+
+<p>现在，以 Balaji（DigiBank 的员工） 的身份，再打开一个终端（称之为 <code>终端3</code>），运行 <code>./roles/digibank.sh</code>。该脚本将启动 docker 容器 cliDigiBank。因为之前已经安装并实例化了智能合约 <code>papercontract</code>，所以无需再做相同的工作。</p>
+
+<pre><code class="language-bash">$ bash roles/digibank.sh
+Creating cliDigiBank ... done
+...
+</code></pre>
+
+<p>跟 Isabella 一样，在认购之前，需要先安装依赖，并将 Balaji 的身份证书加入其钱包。</p>
+
+<h2 id="安装依赖-1">安装依赖</h2>
+
+<pre><code class="language-bash">$ cd organization/digibank/application
+$ npm install
+</code></pre>
+
+<h2 id="将身份证书加入钱包-1">将身份证书加入钱包</h2>
+
+<pre><code class="language-bash">$ node addToWallet.js
+done
+</code></pre>
+
+<h2 id="认购商业票据">认购商业票据</h2>
+
+<pre><code class="language-bash">$ node buy.js
+Connect to Fabric gateway.
+Use network channel: mychannel.
+Use org.papernet.commercialpaper smart contract.
+Submit commercial paper buy transaction.
+Process buy transaction response.
+MagnetoCorp commercial paper : 00001 successfully purchased by DigiBank
+Transaction complete.
+Disconnect from Fabric gateway.
+Buy program complete.
+</code></pre>
+
+<p>如果运行成功，在 <code>终端1</code> 中会看到：</p>
+
+<pre><code>peer0.org1.example.com|... [endorser] callChaincode -&gt; INFO 056 [mychannel][6b7ae889] Entry chaincode: name:&quot;cscc&quot;
+                    peer0.org1.example.com|... [endorser] callChaincode -&gt; INFO 057 [mychannel][6b7ae889] Exit chaincode: name:&quot;cscc&quot;  (0ms)
+                    peer0.org1.example.com|... [comm.grpc.server] 1 -&gt; INFO 058 unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.23.0.1:39574 grpc.code=OK grpc.call_duration=855.36µs
+                    peer0.org1.example.com|... [endorser] callChaincode -&gt; INFO 059 [mychannel][4f21a45f] Entry chaincode: name:&quot;papercontract&quot;
+dev-peer0.org1.example.com-papercontract-0|... info [shim:lib/handler.js]                               [mychannel-4f21a45f] Calling chaincode Invoke() succeeded. Sending COMPLETED message back to peer
+                    peer0.org1.example.com|... [endorser] callChaincode -&gt; INFO 05a [mychannel][4f21a45f] Exit chaincode: name:&quot;papercontract&quot;  (9ms)
+                                   couchdb|[notice] ... nonode@nohost &lt;0.11233.1&gt; def4e6d36a couchdb:5984 172.23.0.5 undefined GET /mychannel_papercontract/%00org.papernet.commercialpaperlist%00%22MagnetoCorp%22%00%2200001%22%00?attachments=true 200 ok 1
+                    peer0.org1.example.com|... [comm.grpc.server] 1 -&gt; INFO 05b unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.23.0.1:39574 grpc.code=OK grpc.call_duration=9.728807ms
+                       orderer.example.com|... [comm.grpc.server] 1 -&gt; INFO 010 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=172.23.0.1:51480 grpc.code=OK grpc.call_duration=7.694869ms
+                    peer0.org1.example.com|... [gossip.privdata] StoreBlock -&gt; INFO 05c [mychannel] Received block [3] from buffer
+                    peer0.org1.example.com|... [committer.txvalidator] Validate -&gt; INFO 05d [mychannel] Validated block [3] in 0ms
+                                   couchdb|[notice] ... nonode@nohost &lt;0.11233.1&gt; 417ff170d9 couchdb:5984 172.23.0.5 undefined POST /mychannel_papercontract/_all_docs?include_docs=true 200 ok 3
+                                   couchdb|[notice] ... nonode@nohost &lt;0.11233.1&gt; 951bd509b6 couchdb:5984 172.23.0.5 undefined POST /mychannel_lscc/_all_docs?include_docs=true 200 ok 4
+                                   couchdb|[notice] ... nonode@nohost &lt;0.11233.1&gt; 5d7af52cd2 couchdb:5984 172.23.0.5 undefined POST /mychannel_papercontract/_bulk_docs 201 ok 3
+                                   couchdb|[notice] ... nonode@nohost &lt;0.11233.1&gt; ec72c4a592 couchdb:5984 172.23.0.5 undefined POST /mychannel_papercontract/_ensure_full_commit 201 ok 0
+                                   couchdb|[notice] ... nonode@nohost &lt;0.11233.1&gt; 88579d0d42 couchdb:5984 172.23.0.5 undefined GET /mychannel_/statedb_savepoint?attachments=true 200 ok 1
+                                   couchdb|[notice] ... nonode@nohost &lt;0.11270.1&gt; b77b909e01 couchdb:5984 172.23.0.5 undefined GET /mychannel_papercontract/_index 200 ok 2
+                                   couchdb|[notice] ... nonode@nohost &lt;0.11233.1&gt; e8a7d51b5b couchdb:5984 172.23.0.5 undefined PUT /mychannel_/statedb_savepoint 201 ok 4
+                    peer0.org1.example.com|... [kvledger] CommitWithPvtData -&gt; INFO 05e [mychannel] Committed block [3] with 1 transaction(s) in 34ms (state_validation=9ms block_and_pvtdata_commit=11ms state_commit=10ms) commitHash=[04a6ddd78a532d6dbe4f09d77e4ad7e1d9afcb414a4cf5ac804febeff3a23e94]
+                    peer0.org1.example.com|... [comm.grpc.server] 1 -&gt; INFO 05f streaming call completed grpc.service=protos.Deliver grpc.method=Deliver grpc.peer_address=172.23.0.1:39574 error=&quot;context finished before block retrieved: context canceled&quot; grpc.code=Unknown grpc.call_duration=2.055971041s
+</code></pre>
+
+<h1 id="赎回">赎回</h1>
+
+<p>继续以 Balaji 的身份，在 <code>终端3</code> 中，执行 <code>node redeem.js</code>。</p>
+
+<pre><code class="language-bash">$ node redeem.js
+Connect to Fabric gateway.
+Use network channel: mychannel.
+Use org.papernet.commercialpaper smart contract.
+Submit commercial paper redeem transaction.
+Process redeem transaction response.
+MagnetoCorp commercial paper : 00001 successfully redeemed with MagnetoCorp
+Transaction complete.
+Disconnect from Fabric gateway.
+Redeem program complete.
+</code></pre>
+
+<p>如果运行成功，在 <code>终端1</code> 中会看到：</p>
+
+<pre><code>peer0.org1.example.com|... [endorser] callChaincode -&gt; INFO 060 [mychannel][be94012c] Entry chaincode: name:&quot;cscc&quot;
+                    peer0.org1.example.com|... [endorser] callChaincode -&gt; INFO 061 [mychannel][be94012c] Exit chaincode: name:&quot;cscc&quot;  (0ms)
+                    peer0.org1.example.com|... [comm.grpc.server] 1 -&gt; INFO 062 unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.23.0.1:40102 grpc.code=OK grpc.call_duration=811.699µs
+                    peer0.org1.example.com|... [endorser] callChaincode -&gt; INFO 063 [mychannel][37e6d5cd] Entry chaincode: name:&quot;papercontract&quot;
+dev-peer0.org1.example.com-papercontract-0|... info [shim:lib/handler.js]                               [mychannel-37e6d5cd] Calling chaincode Invoke() succeeded. Sending COMPLETED message back to peer
+                    peer0.org1.example.com|... [endorser] callChaincode -&gt; INFO 064 [mychannel][37e6d5cd] Exit chaincode: name:&quot;papercontract&quot;  (10ms)
+                                   couchdb|[notice] ...
+                    peer0.org1.example.com|... [comm.grpc.server] 1 -&gt; INFO 065 unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.23.0.1:40102 grpc.code=OK grpc.call_duration=10.884385ms
+                       orderer.example.com|... [comm.grpc.server] 1 -&gt; INFO 011 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=172.23.0.1:52008 grpc.code=OK grpc.call_duration=7.770788ms
+                    peer0.org1.example.com|... [gossip.privdata] StoreBlock -&gt; INFO 066 [mychannel] Received block [4] from buffer
+                    peer0.org1.example.com|... [committer.txvalidator] Validate -&gt; INFO 067 [mychannel] Validated block [4] in 0ms
+                                   couchdb|[notice] ... nonode@nohost &lt;0.21017.1&gt; c8a28d069e couchdb:5984 172.23.0.5 undefined POST /mychannel_papercontract/_all_docs?include_docs=true 200 ok 6
+                                   couchdb|[notice] ... nonode@nohost &lt;0.21017.1&gt; 3834a1b72c couchdb:5984 172.23.0.5 undefined POST /mychannel_lscc/_all_docs?include_docs=true 200 ok 6
+                                   couchdb|[notice] ... nonode@nohost &lt;0.21017.1&gt; 578febab18 couchdb:5984 172.23.0.5 undefined POST /mychannel_papercontract/_bulk_docs 201 ok 3
+                                   couchdb|[notice] ... nonode@nohost &lt;0.21017.1&gt; 5b1f1836b7 couchdb:5984 172.23.0.5 undefined POST /mychannel_papercontract/_ensure_full_commit 201 ok 0
+                                   couchdb|[notice] ... nonode@nohost &lt;0.21057.1&gt; d80d22a615 couchdb:5984 172.23.0.5 undefined GET /mychannel_papercontract/_index 200 ok 1
+                                   couchdb|[notice] ... nonode@nohost &lt;0.21017.1&gt; 9c9835183f couchdb:5984 172.23.0.5 undefined GET /mychannel_/statedb_savepoint?attachments=true 200 ok 4
+                                   couchdb|[notice] ... nonode@nohost &lt;0.21017.1&gt; b50e39a2d4 couchdb:5984 172.23.0.5 undefined PUT /mychannel_/statedb_savepoint 201 ok 6
+                    peer0.org1.example.com|... [kvledger] CommitWithPvtData -&gt; INFO 068 [mychannel] Committed block [4] with 1 transaction(s) in 41ms (state_validation=13ms block_and_pvtdata_commit=10ms state_commit=14ms) commitHash=[9370bdbae339b1be98d289a0674b705091d72628a789e9a0696d28b16ebc7a34]
+                    peer0.org1.example.com|... [comm.grpc.server] 1 -&gt; INFO 069 streaming call completed grpc.service=protos.Deliver grpc.method=Deliver grpc.peer_address=172.23.0.1:40102 error=&quot;context finished before block retrieved: context canceled&quot; grpc.code=Unknown grpc.call_duration=2.061375712s
+</code></pre>
+
+<hr />
+
+<h1 id="参考">参考</h1>
+
+<p><a href="https://github.com/hyperledger/fabric-samples/tree/v1.4.4/commercial-paper">https://github.com/hyperledger/fabric-samples/tree/v1.4.4/commercial-paper</a></p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://devjue.github.io/2019/12/commercial-paper-%E8%A7%A3%E6%9E%90/" title="Commercial Paper 解析" target="_blank" rel="external">https://devjue.github.io/2019/12/commercial-paper-%E8%A7%A3%E6%9E%90/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/devjue" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://devjue.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/devjue" target="_blank"><span class="text-dark">devjue</span><small class="ml-1x">Dev JUE</small></a></h3>
+        <div>Stay Hungray, Stay Foolish!</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://devjue.github.io/2019/12/hyperledger-fabric-1.4-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B9%8B%E5%85%ABkey-concepts-peers-peers-and-orderers/" title="Hyperledger Fabric 1.4 官方文档翻译之八：Key Concepts - Peers - Peers and Orderers"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/devjue" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://devjue.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2019
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+    src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://devjue.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://devjue.github.io/js/plugin.js"></script>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/devjue.github.io\/',
+            CONTENT_URL: 'https:\/\/devjue.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://devjue.github.io/js/insight.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+  </body>
+</html>

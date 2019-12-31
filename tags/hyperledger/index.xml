@@ -5,10 +5,19 @@
     <link>https://devjue.github.io/tags/hyperledger/</link>
     <description>Recent content in Hyperledger on Pure theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 29 Dec 2019 21:42:54 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 31 Dec 2019 23:01:16 +0800</lastBuildDate>
     
         <atom:link href="https://devjue.github.io/tags/hyperledger/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Commercial Paper 解析</title>
+      <link>https://devjue.github.io/2019/12/commercial-paper-%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Tue, 31 Dec 2019 23:01:16 +0800</pubDate>
+      
+      <guid>https://devjue.github.io/2019/12/commercial-paper-%E8%A7%A3%E6%9E%90/</guid>
+      <description>Commercial Papers 是 Fabric-Samples v1.4.4 中的重要示例。本文将只关注于 Commercial Paper，更多关于 Hyperledger Fabric 及 Fabric-Samples 的环境安装请查看Hyperledger Fabric 环境安装。另外，此示例支持 Javascript 和 Java</description>
+    </item>
     
     <item>
       <title>Hyperledger Fabric 1.4 官方文档翻译之八：Key Concepts - Peers - Peers and Orderers</title>
